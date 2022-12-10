@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styled from "styled-components";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 
@@ -6,12 +7,14 @@ const Card = ({ data }) => {
 
   return (
     <CardContainer>
-      <ImageWrapper img={image} />
-      <ContentWrapper>
-        <Title> {title}</Title>
-        <Content> {content}</Content>
-        <Date>{getYYYYMMDD(date)}</Date>
-      </ContentWrapper>
+      <Link href="/">
+        <ImageWrapper img={image} />
+        <ContentWrapper>
+          <Title> {title}</Title>
+          <Content> {content}</Content>
+          <Date>{getYYYYMMDD(date)}</Date>
+        </ContentWrapper>
+      </Link>
     </CardContainer>
   );
 };
@@ -26,12 +29,16 @@ const CardContainer = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: rgb(0 0 0 / 8%) 10px 16px 16px 0px;
+  }
 `;
 const ImageWrapper = styled.image`
   width: 100%;
   height: 200px;
   position: relative;
-  background-image: url(${({ img }) => img});
+  /* background-image: url(${({ img }) => img}); */
   background-position: center;
   background-size: cover;
 `;
