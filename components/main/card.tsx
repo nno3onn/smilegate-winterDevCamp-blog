@@ -7,7 +7,7 @@ const Card = ({ data }) => {
 
   return (
     <CardContainer>
-      <Link href="/">
+      <Link href="/1">
         <ImageWrapper img={image} />
         <ContentWrapper>
           <Title> {title}</Title>
