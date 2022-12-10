@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
@@ -11,7 +12,7 @@ const Nav = () => {
   return (
     <NavContainer backgroundColor={backgroundColor}>
       {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
-      <div>nav</div>
+      <Link href="/">nav</Link>
       <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
     </NavContainer>
   );
@@ -20,8 +21,8 @@ const Nav = () => {
 const NavContainer = styled.div`
   position: sticky;
   width: 100%;
-  height: 64px;
-  padding: 0 16px;
+  height: 4rem;
+  padding: 0 65px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,6 +31,7 @@ const NavContainer = styled.div`
 `;
 
 const LoginBtn = styled.button`
+  font-size: 1rem;
   width: 80px;
   height: 2rem;
   padding-left: 1rem;
