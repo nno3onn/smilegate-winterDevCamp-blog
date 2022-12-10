@@ -7,7 +7,9 @@ const RightBlock = ({ handleCloseModal }) => {
 
   return (
     <Container>
-      <ExitWrapper onClick={handleCloseModal}>X</ExitWrapper>
+      <ExitWrapper onClick={handleCloseModal}>
+        <div>X</div>
+      </ExitWrapper>
       <BlockContent>
         <UpperWrapper>
           <HeadText>{text}</HeadText>
@@ -35,6 +37,9 @@ const ExitWrapper = styled.div`
   margin-bottom: 2.25rem;
   display: flex;
   justify-content: flex-end;
+  div {
+    cursor: pointer;
+  }
 `;
 const BlockContent = styled.div`
   height: 100%;
@@ -58,6 +63,7 @@ const Foot = styled.div`
     margin-left: 10px;
     color: #12b886;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 

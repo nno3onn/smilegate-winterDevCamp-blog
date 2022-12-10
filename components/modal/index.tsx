@@ -23,7 +23,7 @@ const ModalContainer = styled.div`
 `;
 const ModalWrapper = styled.div`
   width: 606px;
-  height: 530px;
+  height: 400px;
   animation: 0.4s ease-in-out 0s 1 normal forwards running cptskd;
   box-shadow: rgb(0 0 0 / 9%) 0px 2px 12px 0px;
   display: flex;
