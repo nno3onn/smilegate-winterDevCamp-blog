@@ -15,7 +15,8 @@ const Nav = () => {
 };
 
 const NavContainer = styled.div`
-  width: 100vw;
+  position: sticky;
+  width: 100%;
   height: 64px;
   padding: 0 16px;
   display: flex;
