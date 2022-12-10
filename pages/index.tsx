@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import Nav from "../components/nav";
 import MainPage from "../container/MainPage";
 
 export default function Home() {
   return (
     <Container>
+      <Nav />
       <MainPage />
     </Container>
   );
