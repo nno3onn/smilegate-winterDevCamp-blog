@@ -1,0 +1,46 @@
+import { useState } from "react";
+import styled from "styled-components";
+import SignModal from "../modal/sign";
+
+const Nav = () => {
+  const [isSignModal, setIsSignModal] = useState(false);
+
+  return (
+    <NavContainer>
+      {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
+      <div>nav</div>
+      <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
+    </NavContainer>
+  );
+};
+
+const NavContainer = styled.div`
+  width: 100vw;
+  height: 64px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const LoginBtn = styled.button`
+  width: 80px;
+  height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  background-color: #212529;
+  color: white;
+  text-align: center;
+  transition: all 0.125s ease-in 0s;
+  cursor: pointer;
+  &:hover {
+    background-color: #343a40;
+  }
+`;
+
+export default Nav;
