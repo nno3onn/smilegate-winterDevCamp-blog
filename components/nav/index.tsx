@@ -1,12 +1,15 @@
+import { useRouter } from "next/router";
 import { useState } from "react";
 import styled from "styled-components";
 import SignModal from "../modal/sign";
 
 const Nav = () => {
+  const router = useRouter();
+  const backgroundColor = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
 
   return (
-    <NavContainer>
+    <NavContainer backgroundColor={backgroundColor}>
       {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
       <div>nav</div>
       <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
@@ -23,6 +26,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
 const LoginBtn = styled.button`
