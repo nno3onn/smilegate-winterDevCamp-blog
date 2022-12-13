@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Modal from "..";
 import LeftBlock from "./leftBlock";
@@ -6,7 +5,7 @@ import RightBlock from "./rightBlock";
 
 const SignModal = ({ handleCloseModal }) => {
   return (
-    <Modal>
+    <Modal width="606px" height="400px">
       <SignContainer>
         <LeftBlock />
         <RightBlock handleCloseModal={handleCloseModal} />

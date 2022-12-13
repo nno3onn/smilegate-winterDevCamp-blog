@@ -1,20 +1,34 @@
+import { useState } from "react";
 import styled from "styled-components";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
+import CommentDeleteModal from "../modal/comment/delete";
 
 const CommentBox = ({ data }) => {
+  const [deleteModal, setDeleteModal] = useState(false);
   const { profileImg, userId, date, content } = data;
 
   return (
-    <CommentContainer>
-      <HeaderWrapper>
-        <ImageWrapper src={profileImg} alt="comment-user-thumbnail" />
-        <InfoWrapper>
-          <IDWrapper>{userId}</IDWrapper>
-          <DateWrapper>{getYYYYMMDD(date)}</DateWrapper>
-        </InfoWrapper>
-      </HeaderWrapper>
-      <ContentWrapper> {content}</ContentWrapper>
-    </CommentContainer>
+    <>
+      {deleteModal && <CommentDeleteModal onClick={() => setDeleteModal(false)} />}
+      <CommentContainer>
+        <HeaderWrapper>
+          <LeftWrapper>
+            <ImageWrapper src={profileImg} alt="comment-user-thumbnail" />
+            <InfoWrapper>
+              <IDWrapper>{userId}</IDWrapper>
+              <DateWrapper>{getYYYYMMDD(date)}</DateWrapper>
+            </InfoWrapper>
+          </LeftWrapper>
+          <RightWrapper>
+            <CommentBtn>수정</CommentBtn>
+            <CommentBtn onClick={() => setDeleteModal(true)} style={{ marginLeft: "0.5rem" }}>
+              삭제
+            </CommentBtn>
+          </RightWrapper>
+        </HeaderWrapper>
+        <ContentWrapper> {content}</ContentWrapper>
+      </CommentContainer>
+    </>
   );
 };
 
@@ -27,6 +41,16 @@ const CommentContainer = styled.div`
   }
 `;
 const HeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+const LeftWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+const RightWrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
@@ -52,11 +76,19 @@ const DateWrapper = styled.div`
   color: #868e96;
   margin-top: 0.5rem;
 `;
+const CommentBtn = styled.span`
+  color: #868e96;
+  cursor: pointer;
+  font-size: 14px;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
 const ContentWrapper = styled.div`
   margin-top: 1.5rem;
   /* margin-bottom: 1.5rem; */
   font-size: 1.125rem;
-  color: var(--text1);
+  color: #212529;
   line-height: 1.7;
   letter-spacing: -0.004em;
   word-break: keep-all;

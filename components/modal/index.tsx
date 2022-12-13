@@ -1,9 +1,11 @@
 import styled from "styled-components";
 
-const Modal = ({ children }) => {
+const Modal = ({ children, width, height }) => {
   return (
     <ModalContainer>
-      <ModalWrapper>{children}</ModalWrapper>
+      <ModalWrapper width={width} height={height}>
+        {children}
+      </ModalWrapper>
     </ModalContainer>
   );
 };
@@ -22,8 +24,8 @@ const ModalContainer = styled.div`
   animation: 0.25s ease 0s 1 normal forwards running cJoqxJ;
 `;
 const ModalWrapper = styled.div`
-  width: 606px;
-  height: 400px;
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
   animation: 0.4s ease-in-out 0s 1 normal forwards running cptskd;
   box-shadow: rgb(0 0 0 / 9%) 0px 2px 12px 0px;
   display: flex;
