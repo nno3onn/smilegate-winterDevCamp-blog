@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Modal from "..";
-import DefaultButton from "../../button";
-import WhiteButton from "../../button/whiteButton";
+import Modal from ".";
+import DefaultButton from "../button";
+import WhiteButton from "../button/whiteButton";
 
-const CommentDeleteModal = ({ onClick }) => (
+const DeleteModal = ({ onClick }) => (
   <Modal width="25rem" height="">
     <Container>
       <Title>댓글 삭제</Title>
@@ -48,4 +48,4 @@ const ButtonContainer = styled.div`
 `;
 const Button = styled.button``;
 
-export default CommentDeleteModal;
+export default DeleteModal;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
-import CommentDeleteModal from "../modal/comment/delete";
+import DeleteModal from "../modal/delete";
 
 const CommentBox = ({ data }) => {
   const [deleteModal, setDeleteModal] = useState(false);
@@ -9,7 +9,7 @@ const CommentBox = ({ data }) => {
 
   return (
     <>
-      {deleteModal && <CommentDeleteModal onClick={() => setDeleteModal(false)} />}
+      {deleteModal && <DeleteModal onClick={() => setDeleteModal(false)} />}
       <CommentContainer>
         <HeaderWrapper>
           <LeftWrapper>
