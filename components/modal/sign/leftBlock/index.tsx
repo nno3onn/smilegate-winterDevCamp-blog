@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const LeftBlock = () => (
-  <Container>
+  <LeftContainer>
     <Image src="https://static.velog.io/static/media/undraw_joyride_hnno.fae6b95e.svg" />
     <Text>환영합니다!</Text>
-  </Container>
+  </LeftContainer>
 );
 
-const Container = styled.div`
+const LeftContainer = styled.div`
   width: 216px;
   height: 100%;
   padding: 24px;
