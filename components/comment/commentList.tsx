@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import styled from "styled-components";
 import CommentBox from "./commentBox";
 
@@ -12,7 +13,7 @@ const CommentList = () => {
   return (
     <CommentContainer>
       {new Array(10).fill(0).map((v) => (
-        <CommentBox data={data} />
+        <CommentBox data={data} key={v4()} />
       ))}
     </CommentContainer>
   );
