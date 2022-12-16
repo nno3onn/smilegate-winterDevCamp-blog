@@ -5,18 +5,18 @@ import WhiteButton from "../button/whiteButton";
 
 const DeleteModal = ({ onClick }) => (
   <Modal width="25rem" height="">
-    <Container>
+    <DeleteContainer>
       <Title>댓글 삭제</Title>
       <Message>댓글을 정말로 삭제하시겠습니까?</Message>
       <ButtonContainer>
         <WhiteButton text="취소" onClick={onClick} />
-        <DefaultButton text="확인" />
+        <DefaultButton text="확인" onClick={onClick} />
       </ButtonContainer>
-    </Container>
+    </DeleteContainer>
   </Modal>
 );
 
-const Container = styled.div`
+const DeleteContainer = styled.div`
   background-color: white;
   width: 100%;
   display: flex;
