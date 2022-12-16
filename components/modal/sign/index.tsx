@@ -5,7 +5,7 @@ import RightBlock from "./rightBlock";
 
 const SignModal = ({ handleCloseModal }) => {
   return (
-    <Modal width="606px" height="400px">
+    <Modal width="606px" height="500px">
       <SignContainer>
         <LeftBlock />
         <RightBlock handleCloseModal={handleCloseModal} />
