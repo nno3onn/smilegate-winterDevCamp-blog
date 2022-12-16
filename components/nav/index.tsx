@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
@@ -6,12 +7,19 @@ import SignModal from "../modal/sign";
 
 const Nav = () => {
   const router = useRouter();
-  const backgroundColor = router.pathname === "/" ? "#f8f9fa" : "white";
+  const bgColor = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    if (userInfo) {
+      setIsLogin(true);
+    }
+  }, []);
 
   return (
-    <NavContainer backgroundColor={backgroundColor}>
+    <NavContainer bgColor={bgColor}>
       {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
       <Link href="/">nav</Link>
       {isLogin ? (
@@ -34,7 +42,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  background-color: ${({ bgColor }) => bgColor};
 `;
 
 const Btn = styled.button`
