@@ -4,14 +4,14 @@ import PostPage from "../container/PostPage";
 
 const Post = () => {
   return (
-    <Container>
+    <PostContainer>
       <Nav />
       <PostPage />
-    </Container>
+    </PostContainer>
   );
 };
 
-const Container = styled.div`
+const PostContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
