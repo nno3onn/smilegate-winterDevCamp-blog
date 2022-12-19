@@ -1,20 +1,34 @@
-import { useEffect } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import Link from "next/link";
 import styled from "styled-components";
 import SignModal from "../modal/sign";
+import isAdmin from "../../util/api/isAdmin";
 
 const Nav = () => {
   const router = useRouter();
   const bgColor = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [admin, setAdmin] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    router.reload();
+  };
+
+  const getIsAdmin = async (user_id: string) => {
+    const res = await isAdmin(user_id);
+    if (res === 1) setAdmin(true);
+  };
 
   useEffect(() => {
-    const userInfo = JSON.parse(localStorage.getItem("userInfo"));
+    const userInfo = localStorage.getItem("userInfo");
     if (userInfo) {
       setIsLogin(true);
+
+      const { user_id } = JSON.parse(userInfo);
+      getIsAdmin(user_id);
     }
   }, []);
 
@@ -22,13 +36,14 @@ const Nav = () => {
     <NavContainer bgColor={bgColor}>
       {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
       <Link href="/">nav</Link>
-      {isLogin ? (
-        <PostBtn>
-          <Link href="/write">새 글 작성</Link>
-        </PostBtn>
-      ) : (
-        <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
-      )}
+      <div>
+        {admin && (
+          <PostBtn>
+            <Link href="/write">새 글 작성</Link>
+          </PostBtn>
+        )}
+        {isLogin ? <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn> : <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>}
+      </div>
     </NavContainer>
   );
 };
@@ -59,7 +74,8 @@ const Btn = styled.button`
   cursor: pointer;
 `;
 const LoginBtn = styled(Btn)`
-  width: 80px;
+  margin-left: 20px;
+  /* width: 80px; */
   background-color: #212529;
   color: white;
   &:hover {
