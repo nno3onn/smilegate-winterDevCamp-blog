@@ -1,18 +1,32 @@
 import styled from "styled-components";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import WriteTitle from "../components/write/title";
 import WriteFoot from "../components/write/foot";
 import WriteContent from "../components/write/content";
+import { useRouter } from "next/router";
 
 const WritePgae = () => {
+  const router = useRouter();
+  const [content, setContent] = useState("");
   const titleRef = useRef(null);
+
+  useEffect(() => {
+    const userInfo = localStorage.getItem("userInfo");
+    if (!userInfo) {
+      router.push("/");
+    }
+  }, []);
+
+  // useEffect(() => {
+  //   console.log(content, titleRef.current?.value);
+  // }, [content]);
 
   return (
     <>
       <WriteContainer>
         <WriteTitle titleRef={titleRef} />
         <Border />
-        <WriteContent />
+        <WriteContent content={content} setContent={setContent} />
       </WriteContainer>
       <WriteFoot />
     </>
