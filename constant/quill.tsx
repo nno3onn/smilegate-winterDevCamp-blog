@@ -49,8 +49,7 @@ export const QUIL_MODULES = {
         },
         { background: [] },
       ],
-      ["image", "video"],
-      ["clean"],
+      ["image"],
     ],
   },
 };
