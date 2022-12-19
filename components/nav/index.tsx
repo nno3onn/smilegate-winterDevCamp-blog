@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import SignModal from "../modal/sign";
 import isAdmin from "../../util/api/isAdmin";
+import getIsAdminByUserId from "../../util/getIsAdminByUserId";
 
 const Nav = () => {
   const router = useRouter();
@@ -17,8 +18,8 @@ const Nav = () => {
     router.reload();
   };
 
-  const getIsAdmin = async (user_id: string) => {
-    const res = await isAdmin(user_id);
+  const getIsAdmin = async (user_id: number) => {
+    const res = await getIsAdminByUserId(user_id);
     if (res === 1) setAdmin(true);
   };
 

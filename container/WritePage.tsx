@@ -4,17 +4,27 @@ import WriteTitle from "../components/write/title";
 import WriteFoot from "../components/write/foot";
 import WriteContent from "../components/write/content";
 import { useRouter } from "next/router";
+import getIsAdminByUserId from "../util/getIsAdminByUserId";
 
 const WritePgae = () => {
   const router = useRouter();
   const [content, setContent] = useState("");
   const titleRef = useRef(null);
 
+  const getIsAdmin = async (user_id: number) => {
+    const isAdmin = await getIsAdminByUserId(user_id);
+    if (!isAdmin) {
+      return router.push("/");
+    }
+  };
+
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
     if (!userInfo) {
-      router.push("/");
+      return router.push("/");
     }
+    const { user_id } = JSON.parse(userInfo);
+    getIsAdmin(user_id);
   }, []);
 
   // useEffect(() => {
