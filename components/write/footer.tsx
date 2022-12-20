@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const WriteFoot = ({ handlePublish }) => {
+const WriteFooter = ({ handlePublish }) => {
   const router = useRouter();
 
   return (
@@ -13,7 +13,6 @@ const WriteFoot = ({ handlePublish }) => {
           나가기
         </BackBtn>
         <RightSide>
-          {/* <SaveBtn>임시저장</SaveBtn> */}
           <CreateBtn onClick={() => handlePublish()}>출간하기</CreateBtn>
         </RightSide>
       </FootWrapper>
@@ -40,7 +39,6 @@ const FootWrapper = styled.div`
   height: 4rem;
   width: 100%;
   box-shadow: rgb(0 0 0 / 10%) 0px 0px 8px;
-  background: var(--editor-footer);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -55,15 +53,15 @@ const Btn = styled.button`
   padding: 0px 1.25rem;
   cursor: pointer;
 `;
-const BackBtn = styled(Btn)``;
+const BackBtn = styled(Btn)`
+  &:hover {
+    background-color: #f2f2f2;
+  }
+`;
 const RightSide = styled.div`
   display: flex;
   flex-direction: row;
   gap: 10px;
-`;
-const SaveBtn = styled(Btn)`
-  color: #12b886;
-  font-weight: bold;
 `;
 const CreateBtn = styled(Btn)`
   background-color: #12b886;
@@ -71,4 +69,4 @@ const CreateBtn = styled(Btn)`
   font-weight: bold;
 `;
 
-export default WriteFoot;
+export default WriteFooter;

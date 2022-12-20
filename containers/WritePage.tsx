@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useRef, useState, useEffect } from "react";
 import WriteTitle from "../components/write/title";
-import WriteFoot from "../components/write/foot";
+import WriteFooter from "../components/write/footer";
 import WriteContent from "../components/write/content";
 import { useRouter } from "next/router";
 import getIsAdminByUserId from "../util/getIsAdminByUserId";
@@ -82,7 +82,7 @@ const WritePgae = () => {
         <Border />
         <WriteContent content={content} setContent={setContent} />
       </WriteContainer>
-      <WriteFoot handlePublish={handlePublish} />
+      <WriteFooter handlePublish={handlePublish} />
     </>
   );
 };
