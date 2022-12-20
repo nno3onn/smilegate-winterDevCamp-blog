@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import { useRef, useState, useEffect } from "react";
-import WriteTitle from "../components/write/title";
-import WriteFooter from "../components/write/footer";
-import WriteContent from "../components/write/content";
+import WriteTitle from "../components/write/WriteTitle";
+import WriteFooter from "../components/write/WriteFooter";
+import WriteContent from "../components/write/WriteContent";
 import { useRouter } from "next/router";
 import getIsAdminByUserId from "../util/getIsAdminByUserId";
 import createPost from "../util/api/createPost";
