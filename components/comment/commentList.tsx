@@ -17,6 +17,7 @@ const CommentContainer = styled.div`
   margin-top: 2.5rem;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+  margin-bottom: 4rem;
 `;
 
 export default CommentList;
