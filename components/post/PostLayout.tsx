@@ -10,6 +10,7 @@ import deletePost from "../../util/api/deletePost";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import { UserType } from "../../store/modules/user";
 import "react-quill/dist/quill.bubble.css";
+import PostLike from "./PostLike";
 
 const PostLayout = () => {
   const user = useSelector(({ user }: { user: UserType }) => user);
@@ -41,6 +42,7 @@ const PostLayout = () => {
       {postInfo && (
         <>
           <Header>
+            <PostLike />
             <Title>{postInfo.title}</Title>
             {user?.isAdmin === 1 && (
               <RightWrapper>
