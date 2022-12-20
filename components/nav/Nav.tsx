@@ -1,55 +1,41 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import styled from "styled-components";
-import SignModal from "../modal/sign";
-import isAdmin from "../../util/api/isAdmin";
-import getIsAdminByUserId from "../../util/getIsAdminByUserId";
+import NavSignModal from "./NavSignModal";
+import { useSelector, useDispatch } from "react-redux";
+import { signOut, UserType } from "../../store/modules/user";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(({ user }: { user: UserType }) => user);
   const router = useRouter();
-  const bgColor = router.pathname === "/" ? "#f8f9fa" : "white";
+  const bgColor: string = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [admin, setAdmin] = useState(false);
 
   const handleLogout = () => {
-    localStorage.clear();
+    dispatch(signOut());
     router.reload();
   };
 
-  const getIsAdmin = async (user_id: number) => {
-    const res = await getIsAdminByUserId(user_id);
-    if (res === 1) setAdmin(true);
-  };
-
-  useEffect(() => {
-    const userInfo = localStorage.getItem("userInfo");
-    if (userInfo) {
-      setIsLogin(true);
-
-      const { user_id } = JSON.parse(userInfo);
-      getIsAdmin(user_id);
-    }
-  }, []);
-
   return (
-    <NavContainer bgColor={bgColor}>
-      {isSignModal && <SignModal handleCloseModal={() => setIsSignModal(false)} />}
-      <Link href="/">nav</Link>
+    <Container bgColor={bgColor}>
+      {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
+      <Link href="/">blog</Link>
       <div>
-        {admin && (
+        {user && (
           <PostBtn>
             <Link href="/write">새 글 작성</Link>
           </PostBtn>
         )}
-        {isLogin ? <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn> : <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>}
+        {user ? <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn> : <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>}
       </div>
-    </NavContainer>
+    </Container>
   );
 };
 
-const NavContainer = styled.div`
+const Container = styled.div`
+  background-color: ${({ bgColor }: { bgColor: string }) => bgColor};
   position: sticky;
   width: 100%;
   height: 4rem;
@@ -58,9 +44,7 @@ const NavContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ bgColor }) => bgColor};
 `;
-
 const Btn = styled.button`
   font-size: 1rem;
   height: 2rem;
@@ -76,7 +60,6 @@ const Btn = styled.button`
 `;
 const LoginBtn = styled(Btn)`
   margin-left: 20px;
-  /* width: 80px; */
   background-color: #212529;
   color: white;
   &:hover {

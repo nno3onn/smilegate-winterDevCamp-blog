@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 import styled from "styled-components";
-import CommentBox from "./commentBox";
+import CommentBox from "./CommentBox";
 
 const CommentList = ({ commentList, handleDeleteComment }) => {
   return (

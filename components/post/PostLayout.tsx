@@ -1,15 +1,18 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import styled from "styled-components";
-import getPost from "../../util/api/getPost";
-import getYYYYMMDD from "../../util/getYYYYMMDD";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import TextButton from "../common/TextButton";
-import "react-quill/dist/quill.bubble.css";
+import getPost from "../../util/api/getPost";
 import deletePost from "../../util/api/deletePost";
+import getYYYYMMDD from "../../util/getYYYYMMDD";
+import { UserType } from "../../store/modules/user";
+import "react-quill/dist/quill.bubble.css";
 
-const PostItems = () => {
+const PostLayout = () => {
+  const user = useSelector(({ user }: { user: UserType }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [postInfo, setPostInfo] = useState(null);
@@ -39,10 +42,12 @@ const PostItems = () => {
         <>
           <Header>
             <Title>{postInfo.title}</Title>
-            <RightWrapper>
-              <TextButton text="수정" onClick={() => router.push(`/write/${post_id}`)} />
-              <TextButton text="삭제" onClick={() => handleDeletePost()} />
-            </RightWrapper>
+            {user?.isAdmin === 1 && (
+              <RightWrapper>
+                <TextButton text="수정" onClick={() => router.push(`/write/${post_id}`)} />
+                <TextButton text="삭제" onClick={() => handleDeletePost()} />
+              </RightWrapper>
+            )}
           </Header>
           <p>{getYYYYMMDD(postInfo["created_at"])}</p>
           <ReactQuill value={postInfo.content} readOnly={true} theme="bubble" />
@@ -74,4 +79,4 @@ const Title = styled.div`
   transition: color 0.125s ease-in 0s;
 `;
 
-export default PostItems;
+export default PostLayout;

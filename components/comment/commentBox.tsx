@@ -1,17 +1,19 @@
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import CommentTextArea from "./CommentTextArea";
+import CommentUpdateButton from "./CommentUpdateButton";
 import deleteComment from "../../util/api/deleteComment";
 import getUserNameByUserId from "../../util/api/getUserNameByUserId";
 import updateComment from "../../util/api/updateComment";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import DeleteModal from "../common/DeleteModal";
 import TextButton from "../common/TextButton";
-import CommentTextArea from "./CommentTextArea";
-import CommentUpdateButton from "./CommentUpdateButton";
+import { UserType } from "../../store/modules/user";
 
 const CommentBox = ({ data, handleDeleteComment }) => {
   const { profileImg, user_id, created_at, content, comment_id } = data;
-
+  const user = useSelector(({ user }: { user: UserType }) => user);
   const [username, setUsername] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -19,14 +21,12 @@ const CommentBox = ({ data, handleDeleteComment }) => {
   const commentRef = useRef(null);
 
   const getUserName = async () => {
-    console.log("getUserName");
     const name = await getUserNameByUserId(user_id);
     setUsername(name);
   };
 
   const handleDelete = () => {
     setDeleteModal(false);
-    console.log(comment_id);
     handleDeleteComment(comment_id);
   };
 
@@ -58,8 +58,8 @@ const CommentBox = ({ data, handleDeleteComment }) => {
             </InfoWrapper>
           </LeftWrapper>
           <RightWrapper>
-            {!isEditing && <TextButton text="수정" onClick={() => setIsEditing(true)} />}
-            <TextButton text="삭제" onClick={() => setDeleteModal(true)} />
+            {user?.user_id === user_id && !isEditing && <TextButton text="수정" onClick={() => setIsEditing(true)} />}
+            {(user?.isAdmin || user?.user_id === user_id) && <TextButton text="삭제" onClick={() => setDeleteModal(true)} />}{" "}
           </RightWrapper>
         </HeaderWrapper>
         {isEditing ? (

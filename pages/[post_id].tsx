@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Nav from "../components/nav";
+import Nav from "../components/nav/Nav";
 import PostPage from "../containers/PostPage";
 
 const Post = () => {

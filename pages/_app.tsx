@@ -1,9 +1,15 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import wrapper from "../store/configuresTore";
+import { Provider } from "react-redux";
+import wrapper from "../store/configureStore";
 
 const App = ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+  const { store, props } = wrapper.useWrappedStore(pageProps);
+  return (
+    <Provider store={store}>
+      <Component {...props.pageProps} />
+    </Provider>
+  );
 };
 
-export default wrapper.withRedux(App);
+export default App;

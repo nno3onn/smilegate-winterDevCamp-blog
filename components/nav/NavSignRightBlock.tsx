@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 import { useState, useRef } from "react";
 import styled from "styled-components";
-import signIn from "../../../../util/api/signIn";
-import signUp from "../../../../util/api/signUp";
-import validateId from "../../../../util/validateId";
-import SignInput from "./Inputs";
-import SignButton from "./signButton";
+import { useDispatch } from "react-redux";
+import SignInput from "./SignInput";
+import SignButton from "./SignButton";
+import validateId from "../../util/validateId";
+import userSignIn from "../../util/api/userSignIn";
+import userSignUp from "../../util/api/userSignUp";
+import { signIn } from "../../store/modules/user";
 
-const RightBlock = ({ handleCloseModal }: any) => {
+const NavSignRightBlock = ({ handleCloseModal }: any) => {
+  const dispatch = useDispatch();
   const router = useRouter();
   const [text, setText] = useState("로그인");
   const nameRef = useRef();
@@ -32,15 +35,14 @@ const RightBlock = ({ handleCloseModal }: any) => {
     if (!validateId(id)) {
       return alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~20자리로 입력해주세요.");
     }
-
     if (text === "로그인") {
-      const res = await signIn({ id, password });
+      const res = await userSignIn({ id, password });
       if (res) {
-        localStorage.setItem("userInfo", JSON.stringify(res));
+        dispatch(signIn(res));
         router.reload();
       }
     } else {
-      const res = await signUp({ id, password, name });
+      const res = await userSignUp({ id, password, name });
       if (res) {
         alert("회원가입이 완료되었습니다.");
         setText("로그인");
@@ -135,4 +137,4 @@ const Foot = styled.div`
   }
 `;
 
-export default RightBlock;
+export default NavSignRightBlock;

@@ -1,4 +1,4 @@
-import Nav from "./nav";
+import Nav from "./nav/Nav";
 import styled from "styled-components";
 
 const Layout = ({ children }) => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LeftBlock = () => (
+const NavSignLeftBlock = () => (
   <LeftContainer>
     <Image src="https://static.velog.io/static/media/undraw_joyride_hnno.fae6b95e.svg" />
     <Text>환영합니다!</Text>
@@ -29,4 +29,4 @@ const Text = styled.p`
   margin-top: 1.5rem;
 `;
 
-export default LeftBlock;
+export default NavSignLeftBlock;

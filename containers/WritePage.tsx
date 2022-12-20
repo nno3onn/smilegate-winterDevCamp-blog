@@ -4,7 +4,7 @@ import WriteTitle from "../components/write/WriteTitle";
 import WriteFooter from "../components/write/WriteFooter";
 import WriteContent from "../components/write/WriteContent";
 import { useRouter } from "next/router";
-import getIsAdminByUserId from "../util/getIsAdminByUserId";
+// import getIsAdminByUserId from "../util/getIsAdminByUserId";
 import createPost from "../util/api/createPost";
 import getPost from "../util/api/getPost";
 import updatePost from "../util/api/updatePost";
@@ -51,14 +51,14 @@ const WritePgae = () => {
     }
   };
 
-  const checkIsAdmin = () => {
-    const userInfo = localStorage.getItem("userInfo");
-    if (!userInfo) {
-      return router.push("/");
-    }
-    const { user_id } = JSON.parse(userInfo);
-    // getIsAdmin(user_id);
-  };
+  // const checkIsAdmin = () => {
+  //   const userInfo = localStorage.getItem("userInfo");
+  //   if (!userInfo) {
+  //     return router.push("/");
+  //   }
+  //   const { user_id } = JSON.parse(userInfo);
+  //   // getIsAdmin(user_id);
+  // };
 
   const getPostInfo = async () => {
     const res = await getPost(post_id);
@@ -68,7 +68,7 @@ const WritePgae = () => {
   };
 
   useEffect(() => {
-    checkIsAdmin();
+    // checkIsAdmin();
 
     if (post_id) {
       getPostInfo();

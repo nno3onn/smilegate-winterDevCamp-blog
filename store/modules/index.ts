@@ -2,7 +2,7 @@ import { combineReducers } from "redux";
 import { HYDRATE } from "next-redux-wrapper";
 import user from "./user";
 
-const rootReducer = (state, action) => {
+const rootReducer = (state: any, action: any) => {
   switch (action.type) {
     case HYDRATE:
       return action.payload;

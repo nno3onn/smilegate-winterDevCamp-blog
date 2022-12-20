@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const signUp = async ({ id, password, name }) => {
+const userSignUp = async ({ id, password, name }) => {
   try {
     const res = await axios.post("http://localhost:3000/api/sign", {
       id,
@@ -13,4 +13,4 @@ const signUp = async ({ id, password, name }) => {
   }
 };
 
-export default signUp;
+export default userSignUp;

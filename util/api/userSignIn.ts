@@ -1,9 +1,8 @@
 const axios = require("axios");
 
-const signIn = async ({ id, password }) => {
+const userSignIn = async ({ id, password }) => {
   try {
     const res = await axios.get(`http://localhost:3000/api/sign?id=${id}&password=${password}`);
-    console.log(res);
     return res.data.data;
   } catch (err) {
     console.log(err);
@@ -11,4 +10,4 @@ const signIn = async ({ id, password }) => {
   }
 };
 
-export default signIn;
+export default userSignIn;

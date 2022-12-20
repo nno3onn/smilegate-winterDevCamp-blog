@@ -1,14 +1,17 @@
 import { useEffect, useState, useRef } from "react";
+import { useRouter } from "next/router";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import CommentList from "./CommentList";
 import CommentTextArea from "./CommentTextArea";
-import createComment from "../../util/api/createComment";
 import CommentCreateButton from "./CommentCreateButton";
+import createComment from "../../util/api/createComment";
 import getCommentsByPostId from "../../util/api/getCommentsByPostId";
-import { useRouter } from "next/router";
 import deleteComment from "../../util/api/deleteComment";
+import { UserType } from "../../store/modules/user";
 
 const Comment = () => {
+  const user = useSelector(({ user }: { user: UserType }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [commentList, setCommentList] = useState([]);
@@ -37,7 +40,7 @@ const Comment = () => {
       return alert("댓글을 입력해주세요.");
     }
     const { post_id } = router.query;
-    const { user_id } = JSON.parse(localStorage.getItem("userInfo"));
+    const { user_id } = user;
     await createComment({ post_id: Number(post_id), content, user_id });
     getComments();
     commentRef.current.value = "";
@@ -46,10 +49,12 @@ const Comment = () => {
   return (
     <>
       <CommentHeader>{commentList.length}개의 댓글</CommentHeader>
-      <InputContainer>
-        <CommentTextArea myRef={commentRef} defaultValue="" />
-        <CommentCreateButton onClick={onCreateComment} />
-      </InputContainer>
+      {user && (
+        <InputContainer>
+          <CommentTextArea myRef={commentRef} defaultValue="" />
+          <CommentCreateButton onClick={onCreateComment} />
+        </InputContainer>
+      )}
       <CommentList commentList={commentList} handleDeleteComment={handleDeleteComment} />
     </>
   );

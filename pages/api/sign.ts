@@ -22,7 +22,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
         } else {
           return res.status(200).json({
             success: true,
-            message: "회원가입이 완료되었습니다.",
+            data: result,
           });
         }
       }
@@ -45,11 +45,9 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
             message: "비밀번호가 다릅니다.",
           });
         } else {
-          const { user_id, id, name } = result[0];
-          const data = { user_id, id, name };
           return res.status(200).json({
             success: true,
-            data,
+            data: result[0],
           });
         }
       }

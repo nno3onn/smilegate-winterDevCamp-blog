@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import Comment from "../components/comment/CommentLayout";
-import PostItems from "../components/post/items";
+import PostLayout from "../components/post/PostLayout";
 
 const PostPage = () => {
   return (
     <PostContainer>
-      <PostItems />
+      <PostLayout />
       <Comment />
     </PostContainer>
   );
