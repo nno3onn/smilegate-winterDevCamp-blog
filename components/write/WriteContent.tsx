@@ -19,9 +19,6 @@ const EditorContainer = styled.div`
     height: calc(100vh - 280px);
     overflow: auto;
   }
-  .ql-container {
-    font-size: 20px !important;
-  }
 `;
 
 export default WriteContent;
