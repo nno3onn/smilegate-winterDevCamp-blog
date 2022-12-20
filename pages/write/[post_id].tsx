@@ -1,4 +1,4 @@
-import WritePgae from "../container/WritePage";
+import WritePgae from "../../containers/WritePage";
 
 const Write = () => <WritePgae />;
 

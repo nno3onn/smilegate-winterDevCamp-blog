@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Nav from "../components/nav";
-import MainPage from "../container/MainPage";
+import MainPage from "../containers/MainPage";
 
 export default function Home() {
   return (

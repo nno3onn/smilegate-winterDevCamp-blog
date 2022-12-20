@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Modal from "..";
+import Modal from "../../common/DefaultModal";
 import LeftBlock from "./leftBlock";
 import RightBlock from "./rightBlock";
 

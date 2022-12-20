@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Modal = ({ children, width, height }) => {
+const DefaultModal = ({ children, width, height }) => {
   return (
     <ModalContainer>
       <ModalWrapper width={width} height={height}>
@@ -31,4 +31,4 @@ const ModalWrapper = styled.div`
   display: flex;
 `;
 
-export default Modal;
+export default DefaultModal;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Nav from "../components/nav";
-import PostPage from "../container/PostPage";
+import PostPage from "../containers/PostPage";
 
 const Post = () => {
   return (

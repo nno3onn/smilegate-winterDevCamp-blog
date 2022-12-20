@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Comment from "../components/comment";
+import Comment from "../components/comment/CommentLayout";
 import PostItems from "../components/post/items";
 
 const PostPage = () => {
@@ -12,8 +12,10 @@ const PostPage = () => {
 };
 
 const PostContainer = styled.div`
-  margin-top: 5.5rem;
-  max-width: 768px;
+  width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
   display: flex;
   flex-direction: column;
 `;

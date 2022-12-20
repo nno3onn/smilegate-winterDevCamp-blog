@@ -2,18 +2,11 @@ import { v4 } from "uuid";
 import styled from "styled-components";
 import CommentBox from "./commentBox";
 
-const CommentList = () => {
-  const data = {
-    profileImg: "https://velog.velcdn.com/profiles/ckdwns9121/thumbnails/1571020697.101.png",
-    userId: "nno3onn",
-    date: Date.now(),
-    content: "잘 보고 갑니다.",
-  };
-
+const CommentList = ({ commentList, handleDeleteComment }) => {
   return (
     <CommentContainer>
-      {new Array(10).fill(0).map((v) => (
-        <CommentBox data={data} key={v4()} />
+      {commentList.map((v) => (
+        <CommentBox data={v} key={v4()} handleDeleteComment={handleDeleteComment} />
       ))}
     </CommentContainer>
   );
@@ -21,7 +14,9 @@ const CommentList = () => {
 
 const CommentContainer = styled.div`
   width: 100%;
-  margin-bottom: 50px;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 `;
 
 export default CommentList;

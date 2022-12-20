@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import Modal from ".";
-import DefaultButton from "../button";
-import WhiteButton from "../button/whiteButton";
+import Modal from "./DefaultModal";
+import DefaultButton from "../common/DefaultButton";
+import WhiteButton from "../common/WhiteButton";
 
-const DeleteModal = ({ onClick }) => (
+const DeleteModal = ({ handleCancel, handleDeleteComment }) => (
   <Modal width="25rem" height="">
     <DeleteContainer>
       <Title>댓글 삭제</Title>
       <Message>댓글을 정말로 삭제하시겠습니까?</Message>
       <ButtonContainer>
-        <WhiteButton text="취소" onClick={onClick} />
-        <DefaultButton text="확인" onClick={onClick} />
+        <WhiteButton text="취소" onClick={handleCancel} />
+        <DefaultButton text="확인" onClick={handleDeleteComment} />
       </ButtonContainer>
     </DeleteContainer>
   </Modal>

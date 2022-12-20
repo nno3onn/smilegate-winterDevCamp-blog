@@ -1,18 +1,19 @@
 import Link from "next/link";
 import styled from "styled-components";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
+import removeTagsInContent from "../../util/removeTagsInContent";
 
 const Card = ({ data }) => {
-  const { image, title, content, date } = data;
+  const { post_id, image, title, content, created_at } = data;
 
   return (
     <CardContainer>
-      <Link href="/1">
+      <Link href={`/${post_id}`}>
         <ImageWrapper img={image} />
         <ContentWrapper>
-          <Title> {title}</Title>
-          <Content> {content}</Content>
-          <Date>{getYYYYMMDD(date)}</Date>
+          <Title>{title}</Title>
+          <Content>{removeTagsInContent(content)}</Content>
+          <Date>{getYYYYMMDD(created_at)}</Date>
         </ContentWrapper>
       </Link>
     </CardContainer>

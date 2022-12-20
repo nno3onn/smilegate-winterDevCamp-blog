@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SignInput = ({ myRef, placeholder, type = "text" }) => <Input type={type} ref={myRef} placeholder={placeholder} />;
+const SignInput = ({ myRef, onKeyUp, placeholder, type = "text" }) => <Input type={type} ref={myRef} onKeyUp={onKeyUp} placeholder={placeholder} />;
 
 const Input = styled.input`
   width: 100%;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ButtonContainer } from ".";
+import { ButtonContainer } from "./DefaultButton";
 
 const WhiteButton = ({ text, onClick }) => <WhiteButtonContainer onClick={onClick}>{text}</WhiteButtonContainer>;
 

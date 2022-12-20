@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-const CommentTextArea = ({ placeholder, value }) => <Input value={value} placeholder={placeholder} />;
+const CommentTextArea = ({ myRef, defaultValue }) => <TextArea ref={myRef} defaultValue={defaultValue} placeholder="댓글을 작성하세요" />;
 
-const Input = styled.textarea`
+const TextArea = styled.textarea`
   resize: none;
   padding: 1rem 1rem 1.5rem;
   outline: none;

@@ -1,32 +1,75 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
+import deleteComment from "../../util/api/deleteComment";
+import getUserNameByUserId from "../../util/api/getUserNameByUserId";
+import updateComment from "../../util/api/updateComment";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
-import DeleteModal from "../modal/delete";
+import DeleteModal from "../common/DeleteModal";
+import TextButton from "../common/TextButton";
+import CommentTextArea from "./CommentTextArea";
+import CommentUpdateButton from "./CommentUpdateButton";
 
-const CommentBox = ({ data }) => {
+const CommentBox = ({ data, handleDeleteComment }) => {
+  const { profileImg, user_id, created_at, content, comment_id } = data;
+
+  const [username, setUsername] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
-  const { profileImg, userId, date, content } = data;
+  const [isEditing, setIsEditing] = useState(false);
+  const [comment, setComment] = useState(content);
+  const commentRef = useRef(null);
+
+  const getUserName = async () => {
+    console.log("getUserName");
+    const name = await getUserNameByUserId(user_id);
+    setUsername(name);
+  };
+
+  const handleDelete = () => {
+    setDeleteModal(false);
+    console.log(comment_id);
+    handleDeleteComment(comment_id);
+  };
+
+  const handleUpdateComment = async () => {
+    const res = await updateComment({
+      content: commentRef.current?.value,
+      comment_id,
+    });
+    setComment(commentRef.current?.value);
+    setIsEditing(false);
+    if (res) {
+    }
+  };
+
+  useEffect(() => {
+    getUserName();
+  }, []);
 
   return (
     <>
-      {deleteModal && <DeleteModal onClick={() => setDeleteModal(false)} />}
+      {deleteModal && <DeleteModal handleCancel={() => setDeleteModal(false)} handleDeleteComment={() => handleDelete()} />}
       <CommentContainer>
         <HeaderWrapper>
           <LeftWrapper>
             <ImageWrapper src={profileImg} alt="comment-user-thumbnail" />
             <InfoWrapper>
-              <IDWrapper>{userId}</IDWrapper>
-              <DateWrapper>{getYYYYMMDD(date)}</DateWrapper>
+              <IDWrapper>{username}</IDWrapper>
+              <DateWrapper>{getYYYYMMDD(created_at)}</DateWrapper>
             </InfoWrapper>
           </LeftWrapper>
           <RightWrapper>
-            <CommentBtn>수정</CommentBtn>
-            <CommentBtn onClick={() => setDeleteModal(true)} style={{ marginLeft: "0.5rem" }}>
-              삭제
-            </CommentBtn>
+            {!isEditing && <TextButton text="수정" onClick={() => setIsEditing(true)} />}
+            <TextButton text="삭제" onClick={() => setDeleteModal(true)} />
           </RightWrapper>
         </HeaderWrapper>
-        <ContentWrapper> {content}</ContentWrapper>
+        {isEditing ? (
+          <>
+            <CommentTextArea myRef={commentRef} defaultValue={content} />
+            <CommentUpdateButton handleCancel={() => setIsEditing(false)} handleUpdate={() => handleUpdateComment()} />
+          </>
+        ) : (
+          <ContentWrapper>{comment}</ContentWrapper>
+        )}
       </CommentContainer>
     </>
   );
@@ -45,6 +88,7 @@ const HeaderWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1.5rem;
 `;
 const LeftWrapper = styled.div`
   display: flex;
@@ -53,6 +97,7 @@ const LeftWrapper = styled.div`
 const RightWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 0.5rem;
 `;
 const ImageWrapper = styled.img`
   width: 3.375rem;
@@ -76,15 +121,7 @@ const DateWrapper = styled.div`
   color: #868e96;
   margin-top: 0.5rem;
 `;
-const CommentBtn = styled.span`
-  color: #868e96;
-  cursor: pointer;
-  font-size: 14px;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
-const ContentWrapper = styled.div`
+const ContentWrapper = styled.pre`
   margin-top: 1.5rem;
   /* margin-bottom: 1.5rem; */
   font-size: 1.125rem;

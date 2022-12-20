@@ -6,24 +6,21 @@ import "react-quill/dist/quill.snow.css";
 
 import { QUIL_MODULES } from "../../constant/quill";
 
-const WriteContent = () => {
-  const [value, setValue] = useState("");
-
-  useEffect(() => {
-    console.log(value);
-  }, [value]);
-
+const WriteContent = ({ content, setContent }) => {
   return (
     <EditorContainer>
-      <ReactQuill theme="snow" value={value} onChange={setValue} modules={QUIL_MODULES} />
+      <ReactQuill theme="snow" value={content} onChange={setContent} modules={QUIL_MODULES} />
     </EditorContainer>
   );
 };
 
 const EditorContainer = styled.div`
   .ql-editor {
-    height: calc(100vh - 260px);
+    height: calc(100vh - 280px);
     overflow: auto;
+  }
+  .ql-container {
+    font-size: 20px !important;
   }
 `;
 

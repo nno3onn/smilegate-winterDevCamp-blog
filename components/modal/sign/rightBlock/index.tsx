@@ -14,6 +14,10 @@ const RightBlock = ({ handleCloseModal }: any) => {
   const idRef = useRef();
   const passwordRef = useRef();
 
+  const onKeyUp = ({ key }) => {
+    if (key === "Enter") handleSign();
+  };
+
   const handleSign = async () => {
     const id = idRef.current?.value;
     const password = passwordRef.current?.value;
@@ -33,7 +37,6 @@ const RightBlock = ({ handleCloseModal }: any) => {
       const res = await signIn({ id, password });
       if (res) {
         localStorage.setItem("userInfo", JSON.stringify(res));
-        handleCloseModal();
         router.reload();
       }
     } else {
@@ -57,14 +60,14 @@ const RightBlock = ({ handleCloseModal }: any) => {
           <HeadText>{text}</HeadText>
           <SideText>아이디로 {text}</SideText>
           <InputWrapper>
-            <SignInput myRef={idRef} placeholder="아이디을 입력하세요." />
+            <SignInput myRef={idRef} onKeyUp={onKeyUp} placeholder="아이디을 입력하세요." />
           </InputWrapper>
           <InputWrapper>
-            <SignInput myRef={passwordRef} type="password" placeholder="비밀번호를 입력하세요." />
+            <SignInput myRef={passwordRef} onKeyUp={onKeyUp} type="password" placeholder="비밀번호를 입력하세요." />
           </InputWrapper>
           {text === "회원가입" && (
             <InputWrapper>
-              <SignInput myRef={nameRef} placeholder="닉네임을 입력하세요." />
+              <SignInput myRef={nameRef} onKeyUp={onKeyUp} placeholder="닉네임을 입력하세요." />
             </InputWrapper>
           )}
           <ButtonWrapper>
