@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import CommentTextArea from "./CommentTextArea";
 import CommentUpdateButton from "./CommentUpdateButton";
-import deleteComment from "../../util/api/deleteComment";
 import getUserNameByUserId from "../../util/api/getUserNameByUserId";
 import updateComment from "../../util/api/updateComment";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
