@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import Cards from "../components/main/Cards";
+import MainPostCardList from "../components/main/MainPostCardList";
 import { mediaQuery } from "../styles/theme";
 
 const MainPage = () => {
   return (
     <MainContainer>
-      <Cards />
+      <MainPostCardList />
     </MainContainer>
   );
 };
