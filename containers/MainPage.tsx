@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Cards from "../components/main/Cards";
+import { mediaQuery } from "../styles/theme";
 
 const MainPage = () => {
   return (
@@ -8,10 +9,6 @@ const MainPage = () => {
     </MainContainer>
   );
 };
-
-const mediaQuery = (maxWidth: number) => `
-  @media (max-width: ${maxWidth}px)
-`;
 
 const MainContainer = styled.div`
   width: 132rem;
