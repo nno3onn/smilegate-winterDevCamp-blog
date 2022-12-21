@@ -4,17 +4,17 @@ import Link from "next/link";
 import styled from "styled-components";
 import NavSignModal from "./NavSignModal";
 import { useSelector, useDispatch } from "react-redux";
-import { signOut, UserType } from "../../store/modules/user";
+import { signOutUser, UserState } from "../../store/modules/userSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const user = useSelector(({ user }: { user: UserType }) => user);
+  const user = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const bgColor: string = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
 
   const handleLogout = () => {
-    dispatch(signOut());
+    dispatch(signOutUser());
     router.reload();
   };
 

@@ -8,10 +8,10 @@ import CommentCreateButton from "./CommentCreateButton";
 import createComment from "../../util/api/createComment";
 import getCommentsByPostId from "../../util/api/getCommentsByPostId";
 import deleteComment from "../../util/api/deleteComment";
-import { UserType } from "../../store/modules/user";
+import { UserState } from "../../store/modules/userSlice";
 
 const Comment = () => {
-  const user = useSelector(({ user }: { user: UserType }) => user);
+  const user = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [commentList, setCommentList] = useState([]);

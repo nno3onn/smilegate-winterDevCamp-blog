@@ -8,11 +8,11 @@ import updateComment from "../../util/api/updateComment";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import DeleteModal from "../common/DeleteModal";
 import TextButton from "../common/TextButton";
-import { UserType } from "../../store/modules/user";
+import { UserState } from "../../store/modules/userSlice";
 
 const CommentBox = ({ data, handleDeleteComment }) => {
   const { profileImg, user_id, created_at, content, comment_id } = data;
-  const user = useSelector(({ user }: { user: UserType }) => user);
+  const user = useSelector(({ user }: { user: UserState }) => user);
   const [username, setUsername] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);

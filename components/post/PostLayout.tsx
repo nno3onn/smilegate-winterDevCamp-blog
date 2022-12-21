@@ -8,12 +8,12 @@ import TextButton from "../common/TextButton";
 import getPost from "../../util/api/getPost";
 import deletePost from "../../util/api/deletePost";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
-import { UserType } from "../../store/modules/user";
+import { UserState } from "../../store/modules/userSlice";
 import "react-quill/dist/quill.bubble.css";
 import PostLike from "./PostLike";
 
 const PostLayout = () => {
-  const user = useSelector(({ user }: { user: UserType }) => user);
+  const user = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [postInfo, setPostInfo] = useState(null);
