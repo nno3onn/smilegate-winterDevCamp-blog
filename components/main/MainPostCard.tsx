@@ -3,11 +3,11 @@ import styled from "styled-components";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import removeTagsInContent from "../../util/removeTagsInContent";
 
-const Card = ({ data }) => {
+const MainPostCard = ({ data }) => {
   const { post_id, image, title, content, created_at } = data;
 
   return (
-    <CardContainer>
+    <Container>
       <Link href={`/${post_id}`}>
         <ImageWrapper img={image} />
         <ContentWrapper>
@@ -16,11 +16,11 @@ const Card = ({ data }) => {
           <Date>{getYYYYMMDD(created_at)}</Date>
         </ContentWrapper>
       </Link>
-    </CardContainer>
+    </Container>
   );
 };
 
-const CardContainer = styled.div`
+const Container = styled.div`
   width: 20rem;
   background-color: white;
   border-radius: 4px;
@@ -78,4 +78,4 @@ const Date = styled.p`
   color: #868e96;
 `;
 
-export default Card;
+export default MainPostCard;

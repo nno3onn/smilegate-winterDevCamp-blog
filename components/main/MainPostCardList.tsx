@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { v4 } from "uuid";
 import getPostList from "../../util/api/getPostList";
-import Card from "./Card";
+import MainPostCard from "./MainPostCard";
 
-const Cards = () => {
+const MainPostCardList = () => {
   const [postList, setPostList] = useState([]);
 
   const getPosts = async () => {
@@ -21,7 +21,7 @@ const Cards = () => {
   return (
     <CardsContainer>
       {postList.map((v) => (
-        <Card data={v} key={v4()} />
+        <MainPostCard data={v} key={v4()} />
       ))}
     </CardsContainer>
   );
@@ -32,4 +32,4 @@ const CardsContainer = styled.div`
   flex-wrap: wrap;
 `;
 
-export default Cards;
+export default MainPostCardList;
