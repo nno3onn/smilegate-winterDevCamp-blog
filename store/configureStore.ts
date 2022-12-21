@@ -59,7 +59,7 @@
 
 //! client redux 사용하는 경우
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
-import { persistStore, persistReducer } from "redux-persist";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import counterSlice from "./modules/counterSlice";
 import logger from "redux-logger";
@@ -81,7 +81,12 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 const makeStore = () => {
   const store = configureStore({
     reducer: persistedReducer,
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: {
+          ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        },
+      }).concat(logger),
   });
   return store;
 };
