@@ -1,28 +1,22 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { v4 } from "uuid";
-import getPostList from "../../util/api/getPostList";
+import { getPostsThunk } from "../../store/modules/postSlice";
 import MainPostCard from "./MainPostCard";
 
 const MainPostCardList = () => {
-  const [postList, setPostList] = useState([]);
-
-  const getPosts = async () => {
-    const res = await getPostList();
-    if (res) {
-      setPostList(res);
-    }
-  };
+  const dispatch = useDispatch();
+  const { posts, isLoading, error } = useSelector(({ post }): PostListState => post);
 
   useEffect(() => {
-    getPosts();
+    dispatch(getPostsThunk());
   }, []);
 
   return (
     <CardsContainer>
-      {postList.map((v) => (
-        <MainPostCard data={v} key={v4()} />
-      ))}
+      {isLoading && <>loading...</>}
+      {posts && posts.map((v) => <MainPostCard data={v} key={v4()} />)}
     </CardsContainer>
   );
 };
