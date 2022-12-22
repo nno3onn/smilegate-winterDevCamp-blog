@@ -21,6 +21,7 @@ pre {
 
 .ql-container {
   font-size: 1.5rem !important;
+  position: inherit !important;
 }
 
 @media (prefers-color-scheme: dark) {
