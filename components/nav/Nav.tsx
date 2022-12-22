@@ -4,26 +4,25 @@ import Link from "next/link";
 import styled from "styled-components";
 import NavSignModal from "./NavSignModal";
 import { useSelector, useDispatch } from "react-redux";
-import { signOutUser, UserState } from "../../store/modules/userSlice";
+import { setInitialState, UserState } from "../../store/modules/userSlice";
 
 const Nav = () => {
   const dispatch = useDispatch();
-  const user = useSelector(({ user }: { user: UserState }) => user);
+  const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const bgColor: string = router.pathname === "/" ? "#f8f9fa" : "white";
   const [isSignModal, setIsSignModal] = useState(false);
 
   const handleLogout = () => {
-    dispatch(signOutUser());
-    router.reload();
+    dispatch(setInitialState());
   };
 
   return (
     <Container bgColor={bgColor}>
       {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
-      <Link href="/">blog</Link>
+      <Link href="/">blog Logo</Link>
       <div>
-        {user && (
+        {user?.isAdmin === 1 && (
           <PostBtn>
             <Link href="/write">새 글 작성</Link>
           </PostBtn>
