@@ -11,7 +11,7 @@ import deleteComment from "../../util/api/deleteComment";
 import { UserState } from "../../store/modules/userSlice";
 
 const Comment = () => {
-  const user = useSelector(({ user }: { user: UserState }) => user);
+  const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [commentList, setCommentList] = useState([]);
