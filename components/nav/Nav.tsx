@@ -5,6 +5,7 @@ import styled from "styled-components";
 import NavSignModal from "./NavSignModal";
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialState, UserState } from "../../store/modules/userSlice";
+import { mediaQuery } from "../../styles/theme";
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -19,7 +20,9 @@ const Nav = () => {
 
   return (
     <Container bgColor={bgColor}>
-      {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
+      {isSignModal && (
+        <NavSignModal handleCloseModal={() => setIsSignModal(false)} />
+      )}
       <Link href="/">blog Logo</Link>
       <div>
         {user?.isAdmin === 1 && (
@@ -27,7 +30,11 @@ const Nav = () => {
             <Link href="/write">새 글 작성</Link>
           </PostBtn>
         )}
-        {user ? <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn> : <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>}
+        {user ? (
+          <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn>
+        ) : (
+          <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
+        )}
       </div>
     </Container>
   );
@@ -38,11 +45,23 @@ const Container = styled.div`
   position: sticky;
   width: 100%;
   height: 4rem;
-  padding: 0 65px;
+  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  margin-left: auto;
+  margin-right: auto;
+  ${mediaQuery(1919)} {
+    width: 88rem;
+  }
+  ${mediaQuery(1440)} {
+    width: 66rem;
+  }
+  ${mediaQuery(1072)} {
+    width: 44rem;
+  }
 `;
 const Btn = styled.button`
   font-size: 1rem;
