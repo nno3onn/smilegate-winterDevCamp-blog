@@ -5,7 +5,7 @@ import SignInput from "./SignInput";
 import SignButton from "./SignButton";
 import validateId from "../../util/validateId";
 import userSignUp from "../../util/api/userSignUp";
-import { setInitialState, signInUser, UserState } from "../../store/modules/userSlice";
+import { setInitialState, signInUserThunk, UserState } from "../../store/modules/userSlice";
 import { useSelector } from "react-redux";
 
 const NavSignRightBlock = ({ handleCloseModal }: any) => {
@@ -47,7 +47,7 @@ const NavSignRightBlock = ({ handleCloseModal }: any) => {
       return alert("아이디는 영문자로 시작하는 영문자 또는 숫자 6~20자리로 입력해주세요.");
     }
     if (text === "로그인") {
-      dispatch(signInUser({ id, password }));
+      dispatch(signInUserThunk({ id, password }));
     } else {
       const res = await userSignUp({ id, password, name });
       if (res) {

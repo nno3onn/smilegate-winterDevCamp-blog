@@ -25,7 +25,7 @@ export interface SignInType {
   password: string;
 }
 
-export const signInUser = createAsyncThunk("user/fetchAsync", async (payload: PayloadAction<SignInType>, thunkAPI) => {
+export const signInUserThunk = createAsyncThunk("user/fetchAsync", async (payload: PayloadAction<SignInType>, thunkAPI) => {
   try {
     const res = await axios.get(`http://localhost:3000/api/sign?id=${payload.id}&password=${payload.password}`);
     const { id, user_id, created_at, name, isAdmin } = res.data.data;
@@ -46,10 +46,10 @@ const userSlice = createSlice({
   },
   extraReducers: (builder: any) => {
     builder
-      .addCase(signInUser.fulfilled, (state: UserState, action: PayloadAction<UserType>) => {
+      .addCase(signInUserThunk.fulfilled, (state: UserState, action: PayloadAction<UserType>) => {
         state.user = action.payload;
       })
-      .addCase(signInUser.rejected, (state: UserState, action: PayloadAction<string>) => {
+      .addCase(signInUserThunk.rejected, (state: UserState, action: PayloadAction<string>) => {
         state.error = action.payload;
       });
   },
