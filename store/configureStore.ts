@@ -3,6 +3,7 @@ import { persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } fro
 import storage from "redux-persist/lib/storage";
 import logger from "redux-logger";
 import user from "./modules/userSlice";
+import post from "./modules/postSlice";
 
 const persistConfig = {
   key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user,
+  post,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
