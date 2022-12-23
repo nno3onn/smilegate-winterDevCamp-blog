@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 
-const WriteFooter = ({ handlePublish }) => {
+const WriteFooter = ({ onClick }) => {
   const router = useRouter();
 
   return (
@@ -13,7 +13,7 @@ const WriteFooter = ({ handlePublish }) => {
           나가기
         </BackBtn>
         <RightSide>
-          <CreateBtn onClick={() => handlePublish()}>출간하기</CreateBtn>
+          <CreateBtn onClick={onClick}>출간하기</CreateBtn>
         </RightSide>
       </FootWrapper>
     </FootContainer>

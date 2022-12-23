@@ -13,10 +13,11 @@ import "react-quill/dist/quill.bubble.css";
 import PostLike from "./PostLike";
 
 const PostLayout = () => {
-  const user = useSelector(({ user }: { user: UserState }) => user);
+  const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [postInfo, setPostInfo] = useState(null);
+  console.log(postInfo);
 
   const getPostInfo = async () => {
     const res = await getPost(post_id);
@@ -52,6 +53,7 @@ const PostLayout = () => {
             )}
           </Header>
           <p>{getYYYYMMDD(postInfo["created_at"])}</p>
+          {postInfo.thumbnail && postInfo.thumbnail !== "null" && <Thumbnail src={postInfo.thumbnail} />}
           <ReactQuill value={postInfo.content} readOnly={true} theme="bubble" />
         </>
       )}
@@ -78,6 +80,10 @@ const Title = styled.div`
   margin-bottom: 2rem;
   word-break: keep-all;
   transition: color 0.125s ease-in 0s;
+`;
+const Thumbnail = styled.img`
+  margin: 2rem auto 0 auto;
+  width: 80%;
 `;
 
 export default PostLayout;

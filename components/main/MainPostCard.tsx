@@ -4,12 +4,12 @@ import getYYYYMMDD from "../../util/getYYYYMMDD";
 import removeTagsInContent from "../../util/removeTagsInContent";
 
 const MainPostCard = ({ data }) => {
-  const { post_id, image, title, content, created_at } = data;
+  const { post_id, thumbnail, title, content, created_at } = data;
 
   return (
     <Container>
       <Link href={`/${post_id}`}>
-        <ImageWrapper img={image} />
+        <ImageWrapper img={thumbnail} />
         <ContentWrapper>
           <Title>{title}</Title>
           <Content>{removeTagsInContent(content)}</Content>
@@ -38,6 +38,7 @@ const Container = styled.div`
 const ImageWrapper = styled.div`
   width: 100%;
   height: 200px;
+  background-color: #eee;
   background-image: url(${({ img }) => img});
   background-position: center;
   background-size: cover;
