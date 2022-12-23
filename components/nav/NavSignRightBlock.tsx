@@ -116,7 +116,6 @@ const BlockContent = styled.div`
 `;
 const UpperWrapper = styled.div``;
 const HeadText = styled.h2`
-  color: #212529;
   font-size: 1.3125rem;
 `;
 const SideText = styled.h4`

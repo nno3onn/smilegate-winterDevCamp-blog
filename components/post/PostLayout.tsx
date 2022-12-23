@@ -75,7 +75,6 @@ const Title = styled.div`
   letter-spacing: -0.004em;
   margin-top: 0px;
   font-weight: 800;
-  color: #212529;
   margin-bottom: 2rem;
   word-break: keep-all;
   transition: color 0.125s ease-in 0s;

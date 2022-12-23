@@ -12,7 +12,6 @@ const TextArea = styled.textarea`
   border-radius: 4px;
   min-height: 6.125rem;
   font-size: 1rem;
-  color: #212529;
   line-height: 1.75;
 `;
 

@@ -14,7 +14,6 @@ const TitleInput = styled.input`
   outline: none;
   border: none;
   font-weight: bold;
-  color: #212529;
 `;
 
 export default WriteTitle;

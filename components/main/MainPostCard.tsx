@@ -56,7 +56,6 @@ const Title = styled.h4`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  color: #212529;
 `;
 const Content = styled.p`
   margin: 0px 0px 1.5rem;

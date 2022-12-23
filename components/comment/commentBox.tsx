@@ -125,7 +125,6 @@ const ContentWrapper = styled.pre`
   margin-top: 1.5rem;
   /* margin-bottom: 1.5rem; */
   font-size: 1.125rem;
-  color: #212529;
   line-height: 1.7;
   letter-spacing: -0.004em;
   word-break: keep-all;

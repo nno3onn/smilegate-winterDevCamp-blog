@@ -8,7 +8,6 @@ const Input = styled.input`
   flex: 1;
   border: 1px solid #dee2e6;
   font-size: 1rem;
-  color: #212529;
   &:focus-visible {
     border: 1px solid #12b886;
     outline: none;

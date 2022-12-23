@@ -27,7 +27,6 @@ const DeleteContainer = styled.div`
 const Title = styled.h3`
   margin: 0px;
   font-size: 1.5rem;
-  color: #212529;
   line-height: 1.5;
   font-weight: bold;
 `;
