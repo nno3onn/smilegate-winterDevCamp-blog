@@ -31,9 +31,9 @@ const Nav = () => {
           </PostBtn>
         )}
         {user ? (
-          <LoginBtn onClick={() => handleLogout()}>로그아웃</LoginBtn>
+          <SignBtn onClick={() => handleLogout()}>로그아웃</SignBtn>
         ) : (
-          <LoginBtn onClick={() => setIsSignModal(true)}>로그인</LoginBtn>
+          <SignBtn onClick={() => setIsSignModal(true)}>로그인</SignBtn>
         )}
       </div>
     </Container>
@@ -65,6 +65,7 @@ const Container = styled.div`
 `;
 const Btn = styled.button`
   font-size: 1rem;
+  line-height: 2rem;
   height: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -76,7 +77,7 @@ const Btn = styled.button`
   transition: all 0.125s ease-in 0s;
   cursor: pointer;
 `;
-const LoginBtn = styled(Btn)`
+const SignBtn = styled(Btn)`
   margin-left: 20px;
   background-color: #212529;
   color: white;
