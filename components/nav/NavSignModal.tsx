@@ -1,16 +1,16 @@
 import styled from "styled-components";
-import Modal from "../common/DefaultModal";
+import DefaultModal from "../common/DefaultModal";
 import NavSignLeftBlock from "./NavSignLeftBlock";
 import NavSignRightBlock from "./NavSignRightBlock";
 
 const NavSignModal = ({ handleCloseModal }) => {
   return (
-    <Modal width="606px" height="500px">
+    <DefaultModal width="600px" height="500px">
       <SignContainer>
         <NavSignLeftBlock />
         <NavSignRightBlock handleCloseModal={handleCloseModal} />
       </SignContainer>
-    </Modal>
+    </DefaultModal>
   );
 };
 
