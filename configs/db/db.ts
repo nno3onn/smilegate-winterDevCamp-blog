@@ -1,6 +1,4 @@
-export {};
 const mysql = require("mysql2");
-require("dotenv").config();
 let db;
 
 try {
