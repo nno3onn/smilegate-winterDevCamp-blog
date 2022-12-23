@@ -39,17 +39,20 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
     });
   } else if (method === "PATCH") {
     const { post_id, title, content, thumbnail = null } = req.body;
-    db.query(`UPDATE post SET title="${title}", content="${content}" ${thumbnail ? `, thumbnail=${thumbnail}` : ""} WHERE post_id=${post_id}`, (err: any, result: any) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log(result);
-        return res.status(200).json({
-          success: true,
-          data: result,
-        });
+    db.query(
+      `UPDATE post SET title="${title}", content="${content}" ${thumbnail ? `, thumbnail="${thumbnail}"` : ""} WHERE post_id=${post_id}`,
+      (err: any, result: any) => {
+        if (err) {
+          console.log(err);
+        } else {
+          console.log(result);
+          return res.status(200).json({
+            success: true,
+            data: result,
+          });
+        }
       }
-    });
+    );
   } else if (method === "DELETE") {
     const { post_id } = req.query;
     db.query(`DELETE FROM post WHERE post_id=${post_id}`, (err: any, result: any) => {
