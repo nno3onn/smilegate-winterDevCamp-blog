@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DefaultModal = ({ children, width, height }) => {
+const DefaultModal = ({ children, width, height }: { children: any; width: string; height: string }) => {
   return (
     <ModalContainer>
       <ModalWrapper width={width} height={height}>
