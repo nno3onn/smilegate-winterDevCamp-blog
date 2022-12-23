@@ -15,6 +15,7 @@ export const ButtonContainer = styled.button`
   padding: 0px 1.25rem;
   height: 2rem;
   font-size: 1rem;
+  transition: all 0.3s;
   cursor: pointer;
   &:hover {
     background-color: #20c997;
