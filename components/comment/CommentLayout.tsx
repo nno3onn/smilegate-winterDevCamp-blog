@@ -2,8 +2,8 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import CommentList from "./CommentList";
 import CommentTextArea from "./CommentTextArea";
+import CommentList from "./commentList";
 import CommentCreateButton from "./CommentCreateButton";
 import createComment from "../../util/api/createComment";
 import getCommentsByPostId from "../../util/api/getCommentsByPostId";
@@ -14,7 +14,7 @@ const Comment = () => {
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
-  const [commentList, setCommentList] = useState([]);
+  const [comments, setComments] = useState([]);
   const commentRef = useRef(null);
 
   const handleDeleteComment = async (comment_id: number) => {
@@ -27,7 +27,7 @@ const Comment = () => {
 
   const getComments = async () => {
     const res = await getCommentsByPostId(post_id);
-    setCommentList(res.reverse());
+    setComments(res.reverse());
   };
 
   useEffect(() => {
@@ -48,14 +48,14 @@ const Comment = () => {
 
   return (
     <>
-      <CommentHeader>{commentList.length}개의 댓글</CommentHeader>
+      <CommentHeader>{comments.length}개의 댓글</CommentHeader>
       {user && (
         <InputContainer>
           <CommentTextArea myRef={commentRef} defaultValue="" />
           <CommentCreateButton onClick={onCreateComment} />
         </InputContainer>
       )}
-      <CommentList commentList={commentList} handleDeleteComment={handleDeleteComment} />
+      <CommentList commentList={comments} handleDeleteComment={handleDeleteComment} />
     </>
   );
 };
