@@ -11,7 +11,7 @@ import TextButton from "../common/TextButton";
 import { UserState } from "../../store/modules/userSlice";
 
 const CommentBox = ({ data, handleDeleteComment }) => {
-  const { profileImg, user_id, created_at, content, comment_id } = data;
+  const { user_id, created_at, content, comment_id } = data;
   const user = useSelector(({ user }: { user: UserState }) => user);
   const [username, setUsername] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
@@ -30,14 +30,12 @@ const CommentBox = ({ data, handleDeleteComment }) => {
   };
 
   const handleUpdateComment = async () => {
-    const res = await updateComment({
+    await updateComment({
       content: commentRef.current?.value,
       comment_id,
     });
     setComment(commentRef.current?.value);
     setIsEditing(false);
-    if (res) {
-    }
   };
 
   useEffect(() => {
@@ -50,7 +48,7 @@ const CommentBox = ({ data, handleDeleteComment }) => {
       <CommentContainer>
         <HeaderWrapper>
           <LeftWrapper>
-            <ImageWrapper src={profileImg} alt="comment-user-thumbnail" />
+            <ImageWrapper />
             <InfoWrapper>
               <IDWrapper>{username}</IDWrapper>
               <DateWrapper>{getYYYYMMDD(created_at)}</DateWrapper>
@@ -58,7 +56,7 @@ const CommentBox = ({ data, handleDeleteComment }) => {
           </LeftWrapper>
           <RightWrapper>
             {user?.user_id === user_id && !isEditing && <TextButton text="수정" onClick={() => setIsEditing(true)} />}
-            {(user?.isAdmin || user?.user_id === user_id) && <TextButton text="삭제" onClick={() => setDeleteModal(true)} />}{" "}
+            {(user?.isAdmin || user?.user_id === user_id) && <TextButton text="삭제" onClick={() => setDeleteModal(true)} />}
           </RightWrapper>
         </HeaderWrapper>
         {isEditing ? (
@@ -98,12 +96,15 @@ const RightWrapper = styled.div`
   flex-direction: row;
   gap: 0.5rem;
 `;
-const ImageWrapper = styled.img`
+const ImageWrapper = styled.div`
   width: 3.375rem;
   height: 3.375rem;
   display: block;
   border-radius: 50%;
   object-fit: cover;
+  background-image: url("/default.png");
+  background-position: center;
+  background-size: cover;
 `;
 const InfoWrapper = styled.div`
   display: flex;
