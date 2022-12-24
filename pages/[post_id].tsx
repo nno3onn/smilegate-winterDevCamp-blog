@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import Nav from "../components/nav/Nav";
+import NavLayout from "../components/nav/NavLayout";
 import titleConfigs from "../configs/title";
 import PostPage from "../containers/PostPage";
 
@@ -9,7 +9,7 @@ const Post = () => {
     <>
       <Helmet title={titleConfigs.postTitle} />
       <PostContainer>
-        <Nav />
+        <NavLayout />
         <PostPage />
       </PostContainer>
     </>

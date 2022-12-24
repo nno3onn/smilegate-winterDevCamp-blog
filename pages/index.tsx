@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
-import Nav from "../components/nav/Nav";
+import NavLayout from "../components/nav/NavLayout";
 import titleConfigs from "../configs/title";
 import MainPage from "../containers/MainPage";
 
@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <Helmet title={titleConfigs.mainTitle} />
       <Container>
-        <Nav />
+        <NavLayout />
         <MainPage />
       </Container>
     </>

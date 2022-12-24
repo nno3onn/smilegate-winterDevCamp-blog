@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setInitialState, UserState } from "../../store/modules/userSlice";
 import { mediaQuery } from "../../styles/theme";
 
-const Nav = () => {
+const NavLayout = () => {
   const dispatch = useDispatch();
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
@@ -20,9 +20,7 @@ const Nav = () => {
 
   return (
     <Container bgColor={bgColor}>
-      {isSignModal && (
-        <NavSignModal handleCloseModal={() => setIsSignModal(false)} />
-      )}
+      {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
       <Link href="/">blog Logo</Link>
       <div>
         {user?.isAdmin === 1 && (
@@ -30,11 +28,7 @@ const Nav = () => {
             <Link href="/write">새 글 작성</Link>
           </PostBtn>
         )}
-        {user ? (
-          <SignBtn onClick={() => handleLogout()}>로그아웃</SignBtn>
-        ) : (
-          <SignBtn onClick={() => setIsSignModal(true)}>로그인</SignBtn>
-        )}
+        {user ? <SignBtn onClick={() => handleLogout()}>로그아웃</SignBtn> : <SignBtn onClick={() => setIsSignModal(true)}>로그인</SignBtn>}
       </div>
     </Container>
   );
@@ -96,4 +90,4 @@ const PostBtn = styled(Btn)`
   }
 `;
 
-export default Nav;
+export default NavLayout;

@@ -1,10 +1,10 @@
-import Nav from "./nav/Nav";
+import NavLayout from "./nav/NavLayout";
 import styled from "styled-components";
 
 const Layout = ({ children }) => {
   return (
     <>
-      <Nav />
+      <NavLayout />
       {children}
     </>
   );
