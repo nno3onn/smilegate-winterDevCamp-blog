@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { v4 } from "uuid";
 import { deleteError, getPostsThunk } from "../../store/modules/postSlice";
 import MainPostCard from "./MainPostCard";
+import { PostState } from "../../store/modules/postSlice";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const MainPostCardList = () => {
@@ -23,14 +24,14 @@ const MainPostCardList = () => {
     <CardsContainer>
       {isLoading && (
         <>
-          {new Array(8).fill().map((v) => (
+          {new Array(12).fill().map((v) => (
             <SkeletonWrapper>
               <Skeleton width="100%" height="100%" />
             </SkeletonWrapper>
           ))}
         </>
       )}
-      {!isLoading && posts.map((v) => <MainPostCard data={v} key={v4()} />)}
+      {!isLoading && posts.map((v: PostState) => <MainPostCard data={v} key={v4()} />)}
     </CardsContainer>
   );
 };
