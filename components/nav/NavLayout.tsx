@@ -12,7 +12,7 @@ const NavLayout = () => {
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const bgColor: string = router.pathname === "/" ? "#f8f9fa" : "white";
-  const [isSignModal, setIsSignModal] = useState(false);
+  const [showSignModal, setShowSignModal] = useState(false);
 
   const handleLogout = () => {
     dispatch(setInitialState());
@@ -20,7 +20,7 @@ const NavLayout = () => {
 
   return (
     <Container bgColor={bgColor}>
-      {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
+      {showSignModal && <NavSignModal handleCloseModal={() => setShowSignModal(false)} />}
       <Link href="/">
         <Logo>
           <img src="/favicon.png" width="24px" />
@@ -33,7 +33,7 @@ const NavLayout = () => {
             <Link href="/write">새 글 작성</Link>
           </PostBtn>
         )}
-        {user ? <SignBtn onClick={() => handleLogout()}>로그아웃</SignBtn> : <SignBtn onClick={() => setIsSignModal(true)}>로그인</SignBtn>}
+        {user ? <SignBtn onClick={() => handleLogout()}>로그아웃</SignBtn> : <SignBtn onClick={() => setShowSignModal(true)}>로그인</SignBtn>}
       </div>
     </Container>
   );
