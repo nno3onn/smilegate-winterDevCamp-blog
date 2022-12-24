@@ -3,26 +3,34 @@ import { useDispatch, useSelector } from "react-redux";
 import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 import { v4 } from "uuid";
-import { getPostsThunk } from "../../store/modules/postSlice";
+import { deleteError, getPostsThunk } from "../../store/modules/postSlice";
 import MainPostCard from "./MainPostCard";
 import "react-loading-skeleton/dist/skeleton.css";
 
 const MainPostCardList = () => {
   const dispatch = useDispatch();
-  const { posts, error } = useSelector(({ post }): PostListState => post);
-  const isLoading = true;
+  const { posts, isLoading, error } = useSelector(({ post }): PostListState => post);
   useEffect(() => {
     dispatch(getPostsThunk());
   }, []);
 
+  if (error) {
+    dispatch(deleteError());
+    return alert("다시 시도해주세요.");
+  }
+
   return (
     <CardsContainer>
       {isLoading && (
-        <SkeletonWrapper>
-          <Skeleton width="100%" height="100%" />
-        </SkeletonWrapper>
+        <>
+          {new Array(8).fill().map((v) => (
+            <SkeletonWrapper>
+              <Skeleton width="100%" height="100%" />
+            </SkeletonWrapper>
+          ))}
+        </>
       )}
-      {/* {posts && posts.map((v) => <MainPostCard data={v} key={v4()} />)} */}
+      {!isLoading && posts.map((v) => <MainPostCard data={v} key={v4()} />)}
     </CardsContainer>
   );
 };
@@ -33,10 +41,8 @@ const CardsContainer = styled.div`
 `;
 const SkeletonWrapper = styled.div`
   width: 20rem;
-  height: 12rem;
+  height: 389px;
   margin: 1rem;
-  display: flex;
-  flex-wrap: wrap;
 `;
 
 export default MainPostCardList;

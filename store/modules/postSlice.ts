@@ -91,7 +91,11 @@ export const deletePostThunk = createAsyncThunk("post/deletePost", async (post_i
 const postSlice = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    deleteError: (state: PostListState) => {
+      state.error = null;
+    },
+  },
   extraReducers: (builder: any) => {
     builder
       .addCase(getPostsThunk.pending, (state: PostListState, action: PayloadAction<null>) => {
@@ -135,7 +139,7 @@ const postSlice = createSlice({
 });
 
 // action export
-export const {} = postSlice.actions;
+export const { deleteError } = postSlice.actions;
 
 // export slice
 export default postSlice.reducer;
