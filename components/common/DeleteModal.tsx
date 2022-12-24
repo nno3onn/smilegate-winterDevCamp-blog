@@ -3,14 +3,14 @@ import Modal from "./DefaultModal";
 import DefaultButton from "../common/DefaultButton";
 import WhiteButton from "../common/WhiteButton";
 
-const DeleteModal = ({ handleCancel, handleDeleteComment }) => (
+const DeleteModal = ({ handleCancel, handleDelete, title, message }: { handleCancel: any; handleDelete: any; title: string; message: string }) => (
   <Modal width="25rem" height="">
     <DeleteContainer>
-      <Title>댓글 삭제</Title>
-      <Message>댓글을 정말로 삭제하시겠습니까?</Message>
+      <Title>{title}</Title>
+      <Message>{message}</Message>
       <ButtonContainer>
         <WhiteButton text="취소" onClick={handleCancel} />
-        <DefaultButton text="확인" onClick={handleDeleteComment} />
+        <DefaultButton text="확인" onClick={handleDelete} />
       </ButtonContainer>
     </DeleteContainer>
   </Modal>
