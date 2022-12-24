@@ -62,7 +62,7 @@ const NavSignRightBlock = ({ handleCloseModal }: any) => {
   return (
     <RightContainer>
       <ExitWrapper onClick={handleCloseModal}>
-        <div>X</div>
+        <img src="/cancel.png" width={18} />
       </ExitWrapper>
       <BlockContent>
         <UpperWrapper>
@@ -104,7 +104,7 @@ const ExitWrapper = styled.div`
   margin-bottom: 2.25rem;
   display: flex;
   justify-content: flex-end;
-  div {
+  img {
     cursor: pointer;
   }
 `;
