@@ -32,7 +32,7 @@ const Comment = () => {
 
   useEffect(() => {
     getComments();
-  }, []);
+  }, [post_id]);
 
   const onCreateComment = async () => {
     const content = commentRef.current?.value;
