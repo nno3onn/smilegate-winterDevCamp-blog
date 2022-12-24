@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import styled from "styled-components";
-import Skeleton from "react-loading-skeleton";
 import PostLike from "./PostLike";
 import TextButton from "../common/TextButton";
 import getPost from "../../util/api/getPost";
@@ -12,7 +11,7 @@ import deletePost from "../../util/api/deletePost";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import { UserState } from "../../store/modules/userSlice";
 import "react-quill/dist/quill.bubble.css";
-import "react-loading-skeleton/dist/skeleton.css";
+import PostLoadingSkeleton from "./PostLoadingSkeleton";
 
 const PostLayout = () => {
   const { user } = useSelector(({ user }: { user: UserState }) => user);
@@ -41,13 +40,7 @@ const PostLayout = () => {
 
   return (
     <>
-      {!postInfo && (
-        <>
-          <Skeleton width="100%" height="4rem" style={{ marginBottom: "2rem" }} />
-          <Skeleton width={125} height={20} style={{ marginTop: 16, marginBottom: 16 }} />
-          <Skeleton width="100%" height="30rem" style={{ margin: "2rem auto 0 auto" }} />
-        </>
-      )}
+      {!postInfo && <PostLoadingSkeleton />}
       {postInfo && (
         <>
           <Header>
