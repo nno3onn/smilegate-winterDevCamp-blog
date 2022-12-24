@@ -14,7 +14,7 @@ const PostCommentBox = ({ data, handleDeleteComment }) => {
   const { user_id, created_at, content, comment_id } = data;
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const [username, setUsername] = useState("");
-  const [deleteModal, setDeleteModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [comment, setComment] = useState(content);
   const commentRef = useRef(null);
@@ -25,7 +25,7 @@ const PostCommentBox = ({ data, handleDeleteComment }) => {
   };
 
   const handleDelete = () => {
-    setDeleteModal(false);
+    setShowDeleteModal(false);
     handleDeleteComment(comment_id);
   };
 
@@ -44,7 +44,14 @@ const PostCommentBox = ({ data, handleDeleteComment }) => {
 
   return (
     <>
-      {deleteModal && <DeleteModal handleCancel={() => setDeleteModal(false)} handleDeleteComment={() => handleDelete()} />}
+      {showDeleteModal && (
+        <DeleteModal
+          title="댓글 삭제"
+          message="댓글을 정말로 삭제하시겠습니까?"
+          handleCancel={() => setShowDeleteModal(false)}
+          handleDelete={() => handleDelete()}
+        />
+      )}
       <CommentContainer>
         <HeaderWrapper>
           <LeftWrapper>
@@ -56,7 +63,7 @@ const PostCommentBox = ({ data, handleDeleteComment }) => {
           </LeftWrapper>
           <RightWrapper>
             {user?.user_id === user_id && !isEditing && <TextButton text="수정" onClick={() => setIsEditing(true)} />}
-            {(user?.isAdmin || user?.user_id === user_id) && <TextButton text="삭제" onClick={() => setDeleteModal(true)} />}
+            {(user?.isAdmin || user?.user_id === user_id) && <TextButton text="삭제" onClick={() => setShowDeleteModal(true)} />}
           </RightWrapper>
         </HeaderWrapper>
         {isEditing ? (
