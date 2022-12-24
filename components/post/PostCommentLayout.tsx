@@ -18,7 +18,6 @@ const PostCommentLayout = () => {
   const commentRef = useRef(null);
 
   const handleDeleteComment = async (comment_id: number) => {
-    console.log(comment_id);
     const res = await deleteComment(comment_id);
     if (res) {
       getComments();

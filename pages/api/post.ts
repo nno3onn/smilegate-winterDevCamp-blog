@@ -5,8 +5,6 @@ const db = require("../../configs/db/db");
 export default function (req: NextApiRequest, res: NextApiResponse) {
   const { method } = req;
 
-  console.log(method);
-
   if (method === "POST") {
     const { title, content, thumbnail = null } = req.body;
     db.query(
@@ -14,9 +12,8 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
         VALUES ('${title}', '${content}', '${convertNowDateTime()}', '${thumbnail}')`,
       (err: any, result: any) => {
         if (err) {
-          console.log(1, err);
+          console.log(err);
         } else {
-          // console.log(result);
           return res.status(200).json({
             success: true,
             data: { post_id: result.insertId },
@@ -30,7 +27,6 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
       if (err) {
         console.log(err);
       } else {
-        // console.log(result);
         return res.status(200).json({
           success: true,
           data: result,
@@ -45,7 +41,6 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
         if (err) {
           console.log(err);
         } else {
-          console.log(result);
           return res.status(200).json({
             success: true,
             data: result,

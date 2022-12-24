@@ -7,7 +7,6 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
 
   if (method === "POST") {
     const { content, post_id, user_id } = req.body;
-    console.log(content, post_id, user_id);
     db.query(
       `INSERT INTO comment (content, created_at, post_id, user_id)
         VALUES ('${content}', '${convertNowDateTime()}', '${post_id}', '${user_id}')`,
@@ -49,7 +48,6 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
     });
   } else if (method === "DELETE") {
     const { comment_id } = req.query;
-    console.log(comment_id);
     db.query(`DELETE FROM comment WHERE comment_id=${comment_id}`, (err: any, result: any) => {
       if (err) {
         console.log(err);

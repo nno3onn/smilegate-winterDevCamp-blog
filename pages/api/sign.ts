@@ -12,7 +12,7 @@ export default function (req: NextApiRequest, res: NextApiResponse) {
         VALUES ('${id}', '${password}', '${convertNowDateTime()}', '${name}', 0)`,
       (err: any, result: any) => {
         if (err) {
-          console.log(1, err);
+          console.log(err);
           if (err.errno === 1062) {
             return res.status(400).json({
               success: false,

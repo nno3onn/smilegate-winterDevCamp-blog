@@ -7,7 +7,6 @@ const createComment = async ({ post_id, content, user_id }: { post_id: number; c
       content,
       user_id,
     });
-    // console.log(res);
     return res.data.data;
   } catch (err) {
     console.log(err);
