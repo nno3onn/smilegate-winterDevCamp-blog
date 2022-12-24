@@ -5,7 +5,7 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 export type UserType = {
   user_id: number;
   id: string;
-  created_at: string;
+  created_at: Date;
   name: string;
   isAdmin: number;
 };

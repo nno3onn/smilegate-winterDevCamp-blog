@@ -6,7 +6,7 @@ export type PostState = {
   post_id: number;
   title: string;
   content: string;
-  created_at: string;
+  created_at: Date;
   thumbnail: string;
 };
 export type PostListState = {
