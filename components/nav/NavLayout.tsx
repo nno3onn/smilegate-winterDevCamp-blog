@@ -68,7 +68,7 @@ const Logo = styled.div`
   justify-content: center;
   span {
     font-family: "Martian Mono", monospace;
-    color: #90c5a0;
+    color: #90c580;
     font-size: 1.5rem;
     margin-left: 8px;
     font-weight: 500;
