@@ -7,6 +7,7 @@ import { deleteError, getPostsThunk } from "../../store/modules/postSlice";
 import MainPostCard from "./MainPostCard";
 import { PostState } from "../../store/modules/postSlice";
 import "react-loading-skeleton/dist/skeleton.css";
+import MainLoadingSkeleton from "./MainLoadingSkeleton";
 
 const MainPostCardList = () => {
   const dispatch = useDispatch();
@@ -22,15 +23,7 @@ const MainPostCardList = () => {
 
   return (
     <CardsContainer>
-      {isLoading && (
-        <>
-          {new Array(12).fill().map((v) => (
-            <SkeletonWrapper>
-              <Skeleton width="100%" height="100%" />
-            </SkeletonWrapper>
-          ))}
-        </>
-      )}
+      {isLoading && <MainLoadingSkeleton />}
       {!isLoading && posts.map((v: PostState) => <MainPostCard data={v} key={v4()} />)}
     </CardsContainer>
   );
@@ -40,10 +33,4 @@ const CardsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
-const SkeletonWrapper = styled.div`
-  width: 20rem;
-  height: 389px;
-  margin: 1rem;
-`;
-
 export default MainPostCardList;
