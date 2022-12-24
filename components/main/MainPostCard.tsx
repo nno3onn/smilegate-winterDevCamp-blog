@@ -1,9 +1,10 @@
 import Link from "next/link";
 import styled from "styled-components";
+import { PostState } from "../../store/modules/postSlice";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
 import removeTagsInContent from "../../util/removeTagsInContent";
 
-const MainPostCard = ({ data }) => {
+const MainPostCard = ({ data }: { data: PostState }) => {
   const { post_id, thumbnail, title, content, created_at } = data;
 
   return (
@@ -39,7 +40,7 @@ const ImageWrapper = styled.div`
   width: 100%;
   height: 200px;
   background-color: #eee;
-  background-image: url(${({ img }) => img});
+  background-image: url(${({ img }: { img: string }) => img});
   background-position: center;
   background-size: cover;
 `;
@@ -76,6 +77,7 @@ const Date = styled.p`
   font-size: 0.75rem;
   line-height: 1.5;
   color: #868e96;
+  margin-bottom: 0;
 `;
 
 export default MainPostCard;
