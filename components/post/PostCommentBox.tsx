@@ -12,7 +12,7 @@ import { UserState } from "../../store/modules/userSlice";
 
 const PostCommentBox = ({ data, handleDeleteComment }) => {
   const { user_id, created_at, content, comment_id } = data;
-  const user = useSelector(({ user }: { user: UserState }) => user);
+  const { user } = useSelector(({ user }: { user: UserState }) => user);
   const [username, setUsername] = useState("");
   const [deleteModal, setDeleteModal] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
