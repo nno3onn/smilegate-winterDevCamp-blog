@@ -1,16 +1,15 @@
 import styled from "styled-components";
 
-const SignButton = ({ text, onClick }) => <InputBtn onClick={onClick}>{text}</InputBtn>;
+const SignButton = ({ text, onClick }: { text: string; onClick: any }) => <ButtonContainer onClick={onClick}>{text}</ButtonContainer>;
 
-const InputBtn = styled.button`
+const ButtonContainer = styled.button`
   background: #12b886;
   color: white;
   font-size: 1rem;
   font-weight: bold;
   outline: none;
   border: none;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-radius: 2px;
   width: 6rem;
   height: 100%;
   word-break: keep-all;
