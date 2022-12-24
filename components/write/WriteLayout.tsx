@@ -59,7 +59,6 @@ const WriteLayout = () => {
     const res = await createPost({ title, content, thumbnail: thumbnailUrl });
     if (res) {
       titleRef.current.value = "";
-      alert("게시글이 등록되었습니다.");
       return router.push(`/${res.post_id}`);
     }
   };
