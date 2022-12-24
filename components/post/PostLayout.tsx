@@ -12,12 +12,14 @@ import getYYYYMMDD from "../../util/getYYYYMMDD";
 import { UserState } from "../../store/modules/userSlice";
 import "react-quill/dist/quill.bubble.css";
 import PostLoadingSkeleton from "./PostLoadingSkeleton";
+import DeleteModal from "../common/DeleteModal";
 
 const PostLayout = () => {
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
   const [postInfo, setPostInfo] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const getPostInfo = async () => {
     const res = await getPost(post_id);
@@ -27,7 +29,6 @@ const PostLayout = () => {
   const handleDeletePost = async () => {
     const res = await deletePost(post_id);
     if (res) {
-      alert("게시글이 삭제되었습니다.");
       return router.push("/");
     }
   };
@@ -40,6 +41,14 @@ const PostLayout = () => {
 
   return (
     <>
+      {showDeleteModal && (
+        <DeleteModal
+          title="포스트 삭제"
+          message="정말로 삭제하시겠습니까?"
+          handleCancel={() => setShowDeleteModal(false)}
+          handleDelete={() => handleDeletePost()}
+        />
+      )}
       {!postInfo && <PostLoadingSkeleton />}
       {postInfo && (
         <>
@@ -49,7 +58,7 @@ const PostLayout = () => {
             {user?.isAdmin === 1 && (
               <RightWrapper>
                 <TextButton text="수정" onClick={() => router.push(`/write/${post_id}`)} />
-                <TextButton text="삭제" onClick={() => handleDeletePost()} />
+                <TextButton text="삭제" onClick={() => setShowDeleteModal(true)} />
               </RightWrapper>
             )}
           </Header>
