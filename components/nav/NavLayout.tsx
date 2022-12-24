@@ -21,7 +21,12 @@ const NavLayout = () => {
   return (
     <Container bgColor={bgColor}>
       {isSignModal && <NavSignModal handleCloseModal={() => setIsSignModal(false)} />}
-      <Link href="/">blog Logo</Link>
+      <Link href="/">
+        <Logo>
+          <img src="/favicon.png" width="24px" />
+          <span>Applog</span>
+        </Logo>
+      </Link>
       <div>
         {user?.isAdmin === 1 && (
           <PostBtn>
@@ -55,6 +60,18 @@ const Container = styled.div`
   }
   ${mediaQuery(1072)} {
     width: 44rem;
+  }
+`;
+const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  span {
+    font-family: "Martian Mono", monospace;
+    color: #90c5a0;
+    font-size: 1.5rem;
+    margin-left: 8px;
+    font-weight: 500;
   }
 `;
 const Btn = styled.button`
