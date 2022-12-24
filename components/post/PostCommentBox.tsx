@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import CommentTextArea from "./CommentTextArea";
-import CommentUpdateButton from "./CommentUpdateButton";
+import PostCommentTextArea from "./PostCommentTextArea";
+import PostCommentUpdateButton from "./PostCommentUpdateButton";
 import getUserNameByUserId from "../../util/api/getUserNameByUserId";
 import updateComment from "../../util/api/updateComment";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
@@ -10,7 +10,7 @@ import DeleteModal from "../common/DeleteModal";
 import TextButton from "../common/TextButton";
 import { UserState } from "../../store/modules/userSlice";
 
-const CommentBox = ({ data, handleDeleteComment }) => {
+const PostCommentBox = ({ data, handleDeleteComment }) => {
   const { user_id, created_at, content, comment_id } = data;
   const user = useSelector(({ user }: { user: UserState }) => user);
   const [username, setUsername] = useState("");
@@ -61,8 +61,8 @@ const CommentBox = ({ data, handleDeleteComment }) => {
         </HeaderWrapper>
         {isEditing ? (
           <>
-            <CommentTextArea myRef={commentRef} defaultValue={content} />
-            <CommentUpdateButton handleCancel={() => setIsEditing(false)} handleUpdate={() => handleUpdateComment()} />
+            <PostCommentTextArea myRef={commentRef} defaultValue={content} />
+            <PostCommentUpdateButton handleCancel={() => setIsEditing(false)} handleUpdate={() => handleUpdateComment()} />
           </>
         ) : (
           <ContentWrapper>{comment}</ContentWrapper>
@@ -131,4 +131,4 @@ const ContentWrapper = styled.pre`
   overflow-wrap: break-word;
 `;
 
-export default CommentBox;
+export default PostCommentBox;

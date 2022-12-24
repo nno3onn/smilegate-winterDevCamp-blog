@@ -2,15 +2,15 @@ import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import CommentTextArea from "./CommentTextArea";
-import CommentList from "./commentList";
-import CommentCreateButton from "./CommentCreateButton";
+import PostCommentTextArea from "./PostCommentTextArea";
+import PostCommentList from "./PostCommentList";
+import PostCommentCreateButton from "./PostCommentCreateButton";
 import createComment from "../../util/api/createComment";
 import getCommentsByPostId from "../../util/api/getCommentsByPostId";
 import deleteComment from "../../util/api/deleteComment";
 import { UserState } from "../../store/modules/userSlice";
 
-const Comment = () => {
+const PostCommentLayout = () => {
   const { user } = useSelector(({ user }: { user: UserState }) => user);
   const router = useRouter();
   const { post_id } = router.query;
@@ -51,11 +51,11 @@ const Comment = () => {
       <CommentHeader>{comments.length}개의 댓글</CommentHeader>
       {user && (
         <InputContainer>
-          <CommentTextArea myRef={commentRef} defaultValue="" />
-          <CommentCreateButton onClick={onCreateComment} />
+          <PostCommentTextArea myRef={commentRef} defaultValue="" />
+          <PostCommentCreateButton onClick={onCreateComment} />
         </InputContainer>
       )}
-      <CommentList commentList={comments} handleDeleteComment={handleDeleteComment} />
+      <PostCommentList commentList={comments} handleDeleteComment={handleDeleteComment} />
     </>
   );
 };
@@ -70,4 +70,4 @@ const CommentHeader = styled.h4`
 const InputContainer = styled.div`
   width: 100%;
 `;
-export default Comment;
+export default PostCommentLayout;

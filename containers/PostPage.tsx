@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import Comment from "../components/comment/CommentLayout";
+import PostCommentLayout from "../components/post/PostCommentLayout";
 import PostLayout from "../components/post/PostLayout";
 
 const PostPage = () => {
   return (
     <PostContainer>
       <PostLayout />
-      <Comment />
+      <PostCommentLayout />
     </PostContainer>
   );
 };

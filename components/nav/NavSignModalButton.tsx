@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SignButton = ({ text, onClick }: { text: string; onClick: any }) => <ButtonContainer onClick={onClick}>{text}</ButtonContainer>;
+const NavSignModalButton = ({ text, onClick }: { text: string; onClick: any }) => <ButtonContainer onClick={onClick}>{text}</ButtonContainer>;
 
 const ButtonContainer = styled.button`
   background: #12b886;
@@ -16,4 +16,4 @@ const ButtonContainer = styled.button`
   cursor: pointer;
 `;
 
-export default SignButton;
+export default NavSignModalButton;

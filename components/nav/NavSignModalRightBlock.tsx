@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, KeyboardEventHandler } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import SignInput from "./SignInput";
-import SignButton from "./SignButton";
+import NavSignModalInput from "./NavSignModalInput";
+import NavSignModalButton from "./NavSignModalButton";
 import validateId from "../../util/validateId";
 import userSignUp from "../../util/api/userSignUp";
 import { setInitialState, signInUserThunk, UserState } from "../../store/modules/userSlice";
@@ -69,18 +69,18 @@ const NavSignRightBlock = ({ handleCloseModal }: any) => {
           <HeadText>{text}</HeadText>
           <SideText>아이디로 {text}</SideText>
           <InputWrapper>
-            <SignInput myRef={idRef} onKeyUp={onKeyUp} placeholder="아이디을 입력하세요." />
+            <NavSignModalInput myRef={idRef} onKeyUp={onKeyUp} placeholder="아이디을 입력하세요." />
           </InputWrapper>
           <InputWrapper>
-            <SignInput myRef={passwordRef} onKeyUp={onKeyUp} type="password" placeholder="비밀번호를 입력하세요." />
+            <NavSignModalInput myRef={passwordRef} onKeyUp={onKeyUp} type="password" placeholder="비밀번호를 입력하세요." />
           </InputWrapper>
           {text === "회원가입" && (
             <InputWrapper>
-              <SignInput myRef={nameRef} onKeyUp={onKeyUp} placeholder="닉네임을 입력하세요." />
+              <NavSignModalInput myRef={nameRef} onKeyUp={onKeyUp} placeholder="닉네임을 입력하세요." />
             </InputWrapper>
           )}
           <ButtonWrapper>
-            <SignButton text={text} onClick={handleSign} />
+            <NavSignModalButton text={text} onClick={handleSign} />
           </ButtonWrapper>
         </UpperWrapper>
         <Foot onClick={() => setText(text === "로그인" ? "회원가입" : "로그인")}>

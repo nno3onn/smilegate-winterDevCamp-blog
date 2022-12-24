@@ -1,12 +1,12 @@
 import { v4 } from "uuid";
 import styled from "styled-components";
-import CommentBox from "./CommentBox";
+import PostCommentBox from "./PostCommentBox";
 
-const CommentList = ({ commentList, handleDeleteComment }) => {
+const PostCommentList = ({ commentList, handleDeleteComment }) => {
   return (
     <CommentContainer>
       {commentList.map((v) => (
-        <CommentBox data={v} key={v4()} handleDeleteComment={handleDeleteComment} />
+        <PostCommentBox data={v} key={v4()} handleDeleteComment={handleDeleteComment} />
       ))}
     </CommentContainer>
   );
@@ -20,4 +20,4 @@ const CommentContainer = styled.div`
   margin-bottom: 4rem;
 `;
 
-export default CommentList;
+export default PostCommentList;

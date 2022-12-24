@@ -2,7 +2,7 @@ import styled from "styled-components";
 import DefaultButton from "../common/DefaultButton";
 import WhiteButton from "../common/WhiteButton";
 
-const CommentUpdateButton = ({ handleCancel, handleUpdate }) => {
+const PostCommentUpdateButton = ({ handleCancel, handleUpdate }) => {
   return (
     <BtnWrapper>
       <WhiteButton text="취소" onClick={handleCancel} />
@@ -18,4 +18,4 @@ const BtnWrapper = styled.div`
   gap: 8px;
 `;
 
-export default CommentUpdateButton;
+export default PostCommentUpdateButton;

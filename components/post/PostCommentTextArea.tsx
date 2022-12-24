@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CommentTextArea = ({ myRef, defaultValue }) => <TextArea ref={myRef} defaultValue={defaultValue} placeholder="댓글을 작성하세요" />;
+const PostCommentTextArea = ({ myRef, defaultValue }) => <TextArea ref={myRef} defaultValue={defaultValue} placeholder="댓글을 작성하세요" />;
 
 const TextArea = styled.textarea`
   resize: none;
@@ -15,4 +15,4 @@ const TextArea = styled.textarea`
   line-height: 1.75;
 `;
 
-export default CommentTextArea;
+export default PostCommentTextArea;
