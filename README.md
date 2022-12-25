@@ -1,34 +1,159 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Smilegate WinterDevCamp 개인 프로젝트
 
-## Getting Started
+## 🍒프로젝트 주제
 
-First, run the development server:
+**BLOG**
 
-```bash
-npm run dev
-# or
-yarn dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## [1인 프로젝트 목표 설정 문서]
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+| 활동 거점 | 팀명   | 이름   | 프로젝트 주제 | GitHub 주소                                             |
+| --------- | ------ | ------ | ------------- | ------------------------------------------------------- |
+| 경북      | Ottogi | 허다은 | Blog          | https://github.com/nno3onn/smilegate-winterDevCamp-blog |
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Project-3: BLOG
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+⚠️ **프로젝트 필수 사항 및 세부 고려 사항**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Requirements
 
-## Deploy on Vercel
+- 글 쓰기/수정
+- 글 목록/삭제
+- 댓글
+- UI디자인
+- 관리자도구
+- 좋아요 (option)
+- Trackback (option)
+- RSS (option)
+- 인증(로그인) 기능은 제외 (되어있다고 가정)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Details
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 최신글( )개를 블로그형태 Layout으로보여주고, 각 기능에 접근 가능한 UI를 표시
+
+- 글 쓰기/수정
+
+  Plain Text 글 쓰기 형태로 개발해도 되지만, 웹 에디터를 연결해서 HTML 및 사진 등까지
+
+  지원하면 더 좋음
+
+- 글 목록/삭제
+
+  게시물 페이지네이션, 삭제처리할 때의 권한 및 컨텐츠 관리를 고려
+
+- 댓글
+
+  게시물과 댓글의 구조로직, 댓글수와 댓글작성자 등 관련된 퍼포먼스 고민
+
+- 관리자기능
+
+  설정, 게시물, 댓글 등 모든 내용 관리
+
+
+
+## 💻 사용 기술
+
+- Next.js, TypeScript, Redux
+- (DB) MySQL
+- AWS RDS, S3
+
+추후에 팀 프로젝트로 MySQL을 사용하기로 결정했으므로 미리 사용하고 익혀보고자 DB를 MySQL로 결정하였습니다.
+
+
+
+## 프로젝트 목표 설정
+
+### 🏃‍♂️개인 목표
+
+- NoSQL의 사용 경험은 있으나, SQL 사용 경험 부재함 → SQL를 공부하고 이번 프로젝트에서 직접 사용해보면서 SQL에 대한 이해도 높이기
+- TypeScript 경험 부재 → TypeScript를 직접 사용해보면서 타입 언어의 장점을 체득하기
+- velog를 참고하면서 좋은 UI, UX란 무엇인지 고민해보기
+- 코드 한 줄을 작성하더라도 허투루 작성하지 않고 논리적 견해를 가진 코드 작성하기
+- 목표한 내용들을 이루면서 개인 프로젝트 끝까지 완성하기
+
+
+
+### ⛳ 프로젝트 목표(List)
+
+#### 1차 목표
+
+- 회원가입 / 로그인 / 로그아웃 -> (인증 제외)
+- 포스트 작성(C), 읽기(R), 수정(U), 삭제(D)
+- 댓글(CRUD)
+- UI 디자인
+- 관리자 기능 (게시물, 댓글 등 모든 내용 관리)
+
+#### 2차 목표
+
+- 포스트 목록 무한 스크롤
+- 포스트 좋아요
+- Trackback
+- RSS
+- 라이트 / 다크모드
+- 글 검색 기능
+
+
+
+### 🕹️구현할 기능(Detail)
+
+* 회원가입 및 로그인
+* 최신글 n개를 블로그 형태 Layout으로 보여주고, 각 기능에 접근 가능한 UI를 표시하기
+* 포스트 작성 / 수정
+  - 웹 에디터를 연결하여 HTML 및 사진 등까지 지원 (React-Quill 라이브러리 사용)
+* 포스트 목록 / 삭제
+  - 포스트 목록 검색 기능
+  - 목록 로딩 시 loading skeleton 띄우기 (React Loading Skeleton 라이브러리 사용)
+  - 포스트 목록 무한 스크롤 적용
+  - 삭제처리 시 권한 및 컨텐츠 관리 고려
+* 댓글 CRUD
+* 관리자 기능
+  - 모든 게시물 수정/삭제 및 댓글 삭제
+* 좋아요
+  - 글 좋아요 기능
+  - 댓글/대댓글 좋아요 기능
+* RSS
+* Trackback
+* 라이트 / 다크모드 설정
+* 반응형 웹 구현
+
+
+
+## 📅 일정 계획표
+
+[1주차]
+
+* SQL, TypeScript 공부하기
+* 아키텍처 설계
+* DB 설계
+* UI 구현하기
+
+[2주차]
+
+* UI 구현하기
+* 1차 목표 기능 구현하기
+
+[3주차]
+
+* 2차 목표 기능 구현하기
+* 수정 및 완성
+
+
+
+## 구현 시 발생한 문제 사항 및 느낀점
+
+**💫 썸네일 이미지를 DB에 저장하기**
+
+본래 포스트의 썸네일 이미지를 저장할 때 파일을 Blob로 변환하고 DB에 저장하고자 하였습니다. 하지만 구현하는 과정에서 생각하는 바대로 잘 이뤄지지 않았고 또 어떤 방법이 효율적일까 고민이 되어 자문을 구하니, Blob로 변환하고 DB에 저장하면 DB에 저장되는 데이터의 크기가 너무 커지므로 오히려 AWS S3를 이용하여 이미지의 url을 DB에 저장하는 것이 효율적일 수 있다는 답변을 받았습니다. 그래서 S3를 추가로 사용하여 프로젝트를 구현하였습니다.
+
+AWS를 사용한 경험이 많지 않아서 이전부터 다양한 기능을 사용해보고자 하는 마음이 있었는데, 이번에 RDS와 S3를 직접 사용해보니 AWS를 이해하는데 도움이 되었습니다. 앞으로도 AWS의 다양한 기능을 경험해보고, 상황에 맞게 기술을 사용하는 개발자가 되고 싶습니다.
+
+**💫 redux-toolkit, redux-thunk에 대한 이해**
+
+로그인한 사용자의 정보를 저장하기 위해 리덕스를 사용하였습니다. 기능을 구현하기 위해 검색하던 와중에 리덕스도 단순 리덕스가 있는 것 뿐만 아니라 리덕스를 쉽게 사용할 수 있는 redux-toolkit과, 또 리듀서에 도달하기 전에 비동기 처리를 해주는 redux-thunk가 있다는 것을 알게 되었습니다. 처음에는 이 개념들이 머릿속에서 정리도 잘 되지 않아서 이해하는데에 어려웠지만 반드시 이해하고 이번 프로젝트에 꼭 적용해보고자 다짐하였습니다. 많은 예제들을 찾아보고 또 공식 문서를 보면서 코드를 썼다 지웠다 반복하니 어떤 구조로 동작하는지 이해가 가기 시작했고 이해한 바를 바탕으로 프로젝트에 성공적으로 적용할 수 있었습니다. 이후로도 주어진 프로젝트에 따라 효율적으로 적용할 수 있도록 더 다양한 기능들을 공부하려 합니다.
+
+**💫 styled-components로 깔끔하게 스타일 적용하기**
+
+create-next-app의 기본 세팅을 유지하면서 프로젝트를 구현하니 color, box-shadow, font-size 등 스타일이 정리가 되지 않고 하드코딩이 가득한 제 코드가 마음에 들지 않았고, 어떻게 하면 더 효율적으로 코드를 작성하고 정리할 수 있을까에 대해 고민을 하게 되면서 style-components의 다양한 기능에 대해 알게 되었습니다. 기본 세팅으로 사용하던 globals.css 대신 createGlobalStyle을 사용하여 적용하였고, 현재 DefaultTheme를 사용하여 스타일 상수들을 정리하며 적용해나가는 중입니다. 이번 프로젝트를 통해서 styled-components의 다양한 기능들에 대해 공부하는 시간을 가질 수 있었고, 앞으로도 더 효율적이고 가독성 높은 코드를 작성하기 위해 다양한 기능들을 더 살펴보며 styled-components를 더 깊게 공부할 예정입니다.
