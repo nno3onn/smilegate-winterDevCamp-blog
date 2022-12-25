@@ -1,7 +1,6 @@
 import NavLayout from "./nav/NavLayout";
-import styled from "styled-components";
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <NavLayout />

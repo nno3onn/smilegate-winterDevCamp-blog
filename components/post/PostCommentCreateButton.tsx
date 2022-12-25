@@ -1,7 +1,8 @@
+import { MouseEventHandler } from "react";
 import styled from "styled-components";
 import DefaultButton from "../common/DefaultButton";
 
-const CommentCreateButton = ({ onClick }) => {
+const CommentCreateButton = ({ onClick }: { onClick: MouseEventHandler }) => {
   return (
     <BtnWrapper>
       <DefaultButton text="댓글 작성" onClick={onClick} />

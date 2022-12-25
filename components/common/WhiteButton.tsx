@@ -7,7 +7,7 @@ const WhiteButton = ({ text, onClick, backgroundColor = "white" }: { text: strin
   </WhiteButtonContainer>
 );
 
-const WhiteButtonContainer = styled(ButtonContainer)`
+const WhiteButtonContainer = styled(ButtonContainer)<{ backgroundColor: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: #12b886;
   &:hover {

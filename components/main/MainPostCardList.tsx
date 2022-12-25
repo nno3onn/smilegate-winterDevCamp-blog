@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Skeleton from "react-loading-skeleton";
 import styled from "styled-components";
 import { v4 } from "uuid";
 import { deleteError, getPostsThunk } from "../../store/modules/postSlice";
@@ -18,7 +17,7 @@ const MainPostCardList = () => {
 
   if (error) {
     dispatch(deleteError());
-    return alert("다시 시도해주세요.");
+    alert("다시 시도해주세요.");
   }
 
   return (

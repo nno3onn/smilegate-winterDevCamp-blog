@@ -42,7 +42,7 @@ const PostCommentLayout = () => {
     const { user_id } = user;
     await createComment({ post_id: Number(post_id), content, user_id });
     getComments();
-    commentRef.current.value = "";
+    commentRef.current?.value = "";
   };
 
   return (

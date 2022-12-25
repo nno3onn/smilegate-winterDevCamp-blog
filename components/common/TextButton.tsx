@@ -1,6 +1,7 @@
+import { MouseEventHandler } from "react";
 import styled from "styled-components";
 
-const TextButton = ({ text, onClick }) => {
+const TextButton = ({ text, onClick }: { text: string; onClick: MouseEventHandler }) => {
   return <TextButtonContainer onClick={onClick}>{text}</TextButtonContainer>;
 };
 

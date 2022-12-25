@@ -76,7 +76,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
 `;
-const LikeButton = styled.div`
+const LikeButton = styled.div<{ isLike: boolean }>`
   height: 3rem;
   width: 3rem;
   border: 1px solid #dee2e6;

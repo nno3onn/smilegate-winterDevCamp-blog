@@ -5,7 +5,7 @@ import styled from "styled-components";
 import NavSignModal from "./NavSignModal";
 import { useSelector, useDispatch } from "react-redux";
 import { setInitialState, UserState } from "../../store/modules/userSlice";
-import { mediaQuery } from "../../styles/theme";
+import mediaQuery from "../../styles/media-query";
 
 const NavLayout = () => {
   const dispatch = useDispatch();

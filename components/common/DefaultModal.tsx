@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const DefaultModal = ({ children, width, height }: { children: any; width: string; height: string }) => {
+const DefaultModal = ({ children, width, height }: { children: React.ReactNode; width: string; height: string }) => {
   return (
     <ModalContainer>
       <ModalWrapper width={width} height={height}>
@@ -23,7 +23,7 @@ const ModalContainer = styled.div`
   background-color: rgba(249, 249, 249, 0.85);
   animation: 0.25s ease 0s 1 normal forwards running cJoqxJ;
 `;
-const ModalWrapper = styled.div`
+const ModalWrapper = styled.div<{ width: string; height: string }>`
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   animation: 0.4s ease-in-out 0s 1 normal forwards running cptskd;

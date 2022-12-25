@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MainPostCardList from "../components/main/MainPostCardList";
-import { mediaQuery } from "../styles/theme";
+import mediaQuery from "../styles/media-query";
 
 const MainPage = () => {
   return (

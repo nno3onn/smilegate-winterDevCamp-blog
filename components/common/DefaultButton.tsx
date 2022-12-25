@@ -1,6 +1,9 @@
+import { MouseEventHandler } from "react";
 import styled from "styled-components";
 
-const DefaultButton = ({ text, onClick }) => <ButtonContainer onClick={onClick}>{text}</ButtonContainer>;
+const DefaultButton = ({ text, onClick }: { text: string; onClick: MouseEventHandler }) => (
+  <ButtonContainer onClick={onClick}>{text}</ButtonContainer>
+);
 
 export const ButtonContainer = styled.button`
   display: inline-flex;

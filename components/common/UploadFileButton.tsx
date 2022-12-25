@@ -1,6 +1,7 @@
+import { FormEventHandler } from "react";
 import styled from "styled-components";
 
-const UploadFileButton = ({ onChange }) => {
+const UploadFileButton = ({ onChange }: { onChange: FormEventHandler }) => {
   return (
     <UploadButtonContainer>
       <LabelContainer for="file">파일찾기</LabelContainer>
