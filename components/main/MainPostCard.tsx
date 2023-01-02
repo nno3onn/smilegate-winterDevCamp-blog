@@ -2,7 +2,7 @@ import Link from "next/link";
 import styled from "styled-components";
 import { PostState } from "../../store/modules/postSlice";
 import getYYYYMMDD from "../../util/getYYYYMMDD";
-import removeTagsInContent from "../../util/removeTagsInContent";
+import Parser from "html-react-parser";
 
 const MainPostCard = ({ data }: { data: PostState }) => {
   const { post_id, thumbnail, title, content, created_at } = data;
@@ -13,7 +13,7 @@ const MainPostCard = ({ data }: { data: PostState }) => {
         <ImageWrapper img={thumbnail} />
         <ContentWrapper>
           <Title>{title}</Title>
-          <Content>{removeTagsInContent(content)}</Content>
+          <Content>{Parser(content)}</Content>
           <Date>{getYYYYMMDD(created_at)}</Date>
         </ContentWrapper>
       </Link>

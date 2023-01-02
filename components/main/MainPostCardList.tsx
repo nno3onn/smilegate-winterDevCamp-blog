@@ -11,6 +11,7 @@ import MainLoadingSkeleton from "./MainLoadingSkeleton";
 const MainPostCardList = () => {
   const dispatch = useDispatch();
   const { posts, isLoading, error } = useSelector(({ post }): PostListState => post);
+
   useEffect(() => {
     dispatch(getPostsThunk());
   }, []);
