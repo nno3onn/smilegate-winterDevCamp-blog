@@ -51,6 +51,13 @@
 - AWS RDS, S3
 
 
+## 📔DB 설계
+
+https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
+![smg-winterdevcamp-blog](https://user-images.githubusercontent.com/60952506/212545152-5c36adb1-5b4e-4bb5-a700-308e78d85753.png)
+
+
+
 
 ## 프로젝트 목표 설정
 
