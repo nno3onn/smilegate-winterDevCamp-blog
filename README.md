@@ -9,8 +9,8 @@
 회원가입 및 로그인
 ![회원가입 및 로그인](https://user-images.githubusercontent.com/60952506/221483777-eaff51f5-def8-41cc-8e19-09c9100ae715.gif)
 
-댓글 
-![댓글 crud](https://user-images.githubusercontent.com/60952506/221483797-37eaaadc-f731-40c5-aca6-ee29ac96b3fe.gif)
+댓글
+![댓글](https://user-images.githubusercontent.com/60952506/221484873-1d670e2f-f508-4157-99b9-20395d1994e3.gif)
 
 
 글 좋아요
