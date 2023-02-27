@@ -54,7 +54,9 @@
 ## 📔DB 설계
 
 https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
-![smg-winterdevcamp-blog](https://user-images.githubusercontent.com/60952506/212545152-5c36adb1-5b4e-4bb5-a700-308e78d85753.png)
+
+![smg-winterdevcamp-blog ](https://user-images.githubusercontent.com/60952506/221477468-846770c0-52b9-4357-9016-2704f9e7e7e7.png)
+
 
 
 
