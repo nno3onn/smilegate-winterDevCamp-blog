@@ -55,8 +55,7 @@
 
 https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 
-![smg-winterdevcamp-blog ](https://user-images.githubusercontent.com/60952506/221477468-846770c0-52b9-4357-9016-2704f9e7e7e7.png)
-
+![smg-winterdevcamp-blog](https://user-images.githubusercontent.com/60952506/221479279-8da08560-b754-4924-9352-ecfb96dfb9ac.png)
 
 
 
