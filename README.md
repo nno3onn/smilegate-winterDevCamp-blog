@@ -4,6 +4,32 @@
 
 **BLOG**
 
+## 시연 영상 및 사진
+
+회원가입 및 로그인
+![회원가입 및 로그인](https://user-images.githubusercontent.com/60952506/221483777-eaff51f5-def8-41cc-8e19-09c9100ae715.gif)
+
+댓글 
+![댓글 crud](https://user-images.githubusercontent.com/60952506/221483797-37eaaadc-f731-40c5-aca6-ee29ac96b3fe.gif)
+
+
+글 좋아요
+![글 좋아요](https://user-images.githubusercontent.com/60952506/221484183-c86c923e-9f28-4259-bfba-1f35fabcfc96.gif)
+
+
+글 쓰기
+<img width="1080" alt="글쓰기" src="https://user-images.githubusercontent.com/60952506/221483899-0c4b0a6b-4503-4081-9155-914cb7864c50.png">
+<img width="1080" alt="글쓰기 썸네일 등록" src="https://user-images.githubusercontent.com/60952506/221483948-1b4631d0-9c03-4b5e-a447-e6f74f1e93ff.png">
+
+
+글 보기
+<img width="1080" alt="글" src="https://user-images.githubusercontent.com/60952506/221483915-38fab51e-f25e-40a7-805b-7b01d3a5d30c.png">
+
+
+글 삭제
+<img width="1080" alt="글 삭제 모달" src="https://user-images.githubusercontent.com/60952506/221483875-597669e8-1188-4597-812e-3d1dfaa22278.png">
+
+
 
 
 ## ⚠️ 필수 사항 및 세부 고려 사항
