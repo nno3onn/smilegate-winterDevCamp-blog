@@ -17,8 +17,9 @@
 ![글 좋아요](https://user-images.githubusercontent.com/60952506/221484183-c86c923e-9f28-4259-bfba-1f35fabcfc96.gif)
 
 
-글 쓰기
+글 쓰기 - 일반
 <img width="1080" alt="글쓰기" src="https://user-images.githubusercontent.com/60952506/221483899-0c4b0a6b-4503-4081-9155-914cb7864c50.png">
+글 쓰기 - (출간하기 버튼 클릭 시)
 <img width="1080" alt="글쓰기 썸네일 등록" src="https://user-images.githubusercontent.com/60952506/221483948-1b4631d0-9c03-4b5e-a447-e6f74f1e93ff.png">
 
 
