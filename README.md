@@ -1,39 +1,60 @@
 # Smilegate WinterDevCamp 개인 프로젝트
 
+스마일게이트 윈터데브캠프 2기 개인프로젝트로 개발한 블로그 프로젝트입니다.
+
+<img src="https://user-images.githubusercontent.com/60952506/226073719-adf4493f-7c6d-4cfb-95d7-0240625d3f6e.png" width="800" />
+
+<br>
+<br>
+
 ## 🍒 프로젝트 주제
 
 **BLOG**
+
+
+<br>
+<br>
 
 ## 시연 영상 및 사진
 
 회원가입 및 로그인
 ![회원가입 및 로그인](https://user-images.githubusercontent.com/60952506/221483777-eaff51f5-def8-41cc-8e19-09c9100ae715.gif)
+ 
+<br>
 
 댓글 CRUD
 ![댓글](https://user-images.githubusercontent.com/60952506/221484873-1d670e2f-f508-4157-99b9-20395d1994e3.gif)
-
+ 
+<br>
 
 글 좋아요
 ![글 좋아요](https://user-images.githubusercontent.com/60952506/221484183-c86c923e-9f28-4259-bfba-1f35fabcfc96.gif)
-
+ 
+<br>
 
 글 쓰기 - 일반
 <img width="1080" alt="글쓰기" src="https://user-images.githubusercontent.com/60952506/221483899-0c4b0a6b-4503-4081-9155-914cb7864c50.png">
+ 
+<br>
 
 글 쓰기 - 썸네일 등록 (출간하기 버튼 클릭 시)
 
 <img width="1080" alt="글쓰기 썸네일 등록" src="https://user-images.githubusercontent.com/60952506/221483948-1b4631d0-9c03-4b5e-a447-e6f74f1e93ff.png">
-
+ 
+<br>
 
 글 보기
 <img width="1080" alt="글" src="https://user-images.githubusercontent.com/60952506/221483915-38fab51e-f25e-40a7-805b-7b01d3a5d30c.png">
-
+ 
+<br>
 
 글 삭제
 <img width="1080" alt="글 삭제 모달" src="https://user-images.githubusercontent.com/60952506/221483875-597669e8-1188-4597-812e-3d1dfaa22278.png">
 
 
-
+ 
+<br> 
+<br>
 
 ## ⚠️ 필수 사항 및 세부 고려 사항
 
@@ -48,6 +69,8 @@
 - Trackback (option)
 - RSS (option)
 - 인증(로그인) 기능은 제외 (되어있다고 가정)
+ 
+<br>
 
 ### Details
 
@@ -71,14 +94,18 @@
 
   설정, 게시물, 댓글 등 모든 내용 관리
 
-
+ 
+<br> 
+<br>
 
 ## 🖥️ 기술 스택
 
 - Next.js, TypeScript, Redux, Styped Components
 - MySQL
 - AWS RDS, S3
-
+ 
+<br> 
+<br>
 
 ## 📔DB 설계
 
@@ -87,7 +114,9 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 ![smg-winterdevcamp-blog](https://user-images.githubusercontent.com/60952506/221479279-8da08560-b754-4924-9352-ecfb96dfb9ac.png)
 
 
-
+ 
+<br> 
+<br>
 
 ## 프로젝트 목표 설정
 
@@ -99,7 +128,8 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 - 코드 한 줄을 작성하더라도 허투루 작성하지 않고 논리적 견해를 가지고 작성하기
 - 목표한 내용들을 이루면서 개인 프로젝트 끝까지 **완성**하기
 
-
+ 
+<br>
 
 ### ⛳ 프로젝트 목표(List)
 
@@ -110,6 +140,8 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 - ✅ 댓글(CRUD)
 - ✅ UI 디자인
 - ✅ 관리자 기능 (게시물, 댓글 등 모든 내용 관리)
+ 
+<br>
 
 #### 2차 목표
 
@@ -120,7 +152,8 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 - Trackback
 - RSS
 - 글 검색 기능
-
+ 
+<br>
 
 
 ### 🕹️구현 기능(Detail)
@@ -143,7 +176,9 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 * RSS
 * Trackback
 
-
+ 
+<br> 
+<br>
 
 ## 구현 시 발생한 문제 사항 및 느낀점
 
@@ -166,7 +201,9 @@ https://www.erdcloud.com/d/avSHhH4wFTvaE6GjD
 **💫 github 커밋(...)**
 
 * 프로젝트의 총 커밋 개수와 커밋 메시지를 살펴보니 너무 잘게 쪼개어 자주 커밋을 한 것 같습니다(...). 팀프로젝트를 진행할 때 문제가 없도록 하기 위해 어느 단위로 커밋을 해야 적당한지 알아보고, 추가로 깃허브 협동 방법도 미리 익혀야겠습니다.
-
+ 
+<br> 
+<br>
 
 
 ## 개발관련 과정에서 궁금했던 부분
