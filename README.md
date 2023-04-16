@@ -100,9 +100,9 @@
 
 ## 🖥️ 기술 스택
 
-- Next.js, TypeScript, Redux, Styped Components
+- Next.js, TypeScript, Redux, Styled-Components, React-Quill 
 - MySQL
-- AWS RDS, S3
+- AWS RDS, AWS S3
  
 <br> 
 <br>
